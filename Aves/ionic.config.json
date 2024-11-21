@@ -1,0 +1,7 @@
+{
+  "name": "Aves",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
