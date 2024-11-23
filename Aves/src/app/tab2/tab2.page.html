@@ -12,9 +12,12 @@
       <ion-item>
         <ion-label>Tipo de Hábitat</ion-label>
         <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat">
-          <ion-select-option value="Desierto">Desierto</ion-select-option>
-          <ion-select-option value="Selva Tropical">Selva Tropical</ion-select-option>
           <ion-select-option value="Bosque">Bosque</ion-select-option>
+          <ion-select-option value="Selva Tropical">Selva Tropical</ion-select-option>
+          <ion-select-option value="Desierto">Desierto</ion-select-option>
+          <ion-select-option value="Pradera">Pradera</ion-select-option>
+          <ion-select-option value="Pantano">Pantano</ion-select-option>
+          <ion-select-option value="Montaña">Montaña</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -22,8 +25,10 @@
         <ion-label>Clima</ion-label>
         <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima">
           <ion-select-option value="Cálido">Cálido</ion-select-option>
-          <ion-select-option value="Húmedo">Húmedo</ion-select-option>
           <ion-select-option value="Frío">Frío</ion-select-option>
+          <ion-select-option value="Húmedo">Húmedo</ion-select-option>
+          <ion-select-option value="Tropical">Tropical</ion-select-option>
+          <ion-select-option value="Templado">Templado</ion-select-option>
         </ion-select>
       </ion-item>
 
@@ -33,14 +38,14 @@
           <ion-select-option value="Densa">Densa</ion-select-option>
           <ion-select-option value="Escasa">Escasa</ion-select-option>
           <ion-select-option value="Moderada">Moderada</ion-select-option>
+          <ion-select-option value="Tropical">Tropical</ion-select-option>
+          <ion-select-option value="Seca">Seca</ion-select-option>
         </ion-select>
       </ion-item>
     </div>
 
     <!-- Botón para guardar -->
-    <div class="button-container">
-      <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
-    </div>
+    <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
 
     <!-- Vista de tarjetas de datos -->
     <div class="cards-container">
