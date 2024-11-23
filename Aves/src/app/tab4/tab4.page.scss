@@ -1,2 +1,42 @@
-
-
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Centrar la tabla */
+  .table-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  /* Alinear formulario a la izquierda */
+  .form-container {
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  ion-card {
+    background-color: #2e2e2e;
+  }
+  
+  ion-card-title {
+    color: #ffffff;
+  }
+  
+  .header-row ion-col {
+    font-weight: bold;
+    border-bottom: 1px solid #ffffff;
+  }
+  
+  ion-item {
+    --background: #2e2e2e;
+    --color: #ffffff;
+  }
+  
+  ion-button {
+    margin-top: 10px;
+  }
+  
