@@ -1,0 +1,95 @@
+/* Fondo general */ 
+ion-content {
+    --background: #f5f7fa; /* Fondo claro */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Encabezado */
+  .header {
+    background-color: #007bff; /* Azul principal */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px;
+    font-weight: bold;
+    border-bottom: 3px solid #0056b3; /* Detalle de borde */
+  }
+  
+  /* Contenedor principal */
+  .main-container {
+    padding: 20px;
+  }
+  
+  /* Tarjeta de selección */
+  .card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Título de la tarjeta */
+  .card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #007bff;
+    text-align: center;
+  }
+  
+  /* Contenedor del botón */
+  .button-container {
+    display: flex;
+    justify-content: center;  /* Centra el contenido horizontalmente */
+    align-items: center;      /* Centra el contenido verticalmente si es necesario */
+    margin-top: 20px;         /* Ajusta el margen superior si lo deseas */
+  }
+  
+  /* Botón ajustado */
+  .save-button {
+    background-color: #007bff; /* Azul principal */
+    border-radius: 20px; /* Bordes redondeados */
+    font-weight: bold;
+    color: white;
+    width: 150px; /* Ancho ajustado */
+    padding: 12px 24px; /* Ajuste del tamaño del botón */
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .save-button:hover {
+    background-color: #0056b3; /* Cambia el color al pasar el cursor */
+  }
+  
+  /* Contenedor de tarjetas de datos */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* Configura dos columnas */
+    gap: 20px;
+    justify-items: center; /* Centra las tarjetas */
+  }
+  
+  /* Tarjeta de datos */
+  .data-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: left;
+    width: 100%; /* Asegura que ocupe el espacio */
+    max-width: 300px; /* Tamaño máximo */
+  }
+  
+  .data-card h4 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .data-card p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  

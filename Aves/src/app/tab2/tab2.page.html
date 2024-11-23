@@ -1,17 +1,55 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content>
+  <!-- Encabezado -->
+  <div class="header">
+    <h2>Información del Hábitat</h2>
+  </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Contenedor principal -->
+  <div class="main-container">
+    <!-- Opciones de selección -->
+    <div class="card">
+      <h3>Detalles del Hábitat</h3>
+      <ion-item>
+        <ion-label>Tipo de Hábitat</ion-label>
+        <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat">
+          <ion-select-option value="Desierto">Desierto</ion-select-option>
+          <ion-select-option value="Selva Tropical">Selva Tropical</ion-select-option>
+          <ion-select-option value="Bosque">Bosque</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+      <ion-item>
+        <ion-label>Clima</ion-label>
+        <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima">
+          <ion-select-option value="Cálido">Cálido</ion-select-option>
+          <ion-select-option value="Húmedo">Húmedo</ion-select-option>
+          <ion-select-option value="Frío">Frío</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Vegetación</ion-label>
+        <ion-select [(ngModel)]="vegetacion" placeholder="Selecciona la vegetación">
+          <ion-select-option value="Densa">Densa</ion-select-option>
+          <ion-select-option value="Escasa">Escasa</ion-select-option>
+          <ion-select-option value="Moderada">Moderada</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <!-- Botón para guardar -->
+    <div class="button-container">
+      <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
+    </div>
+
+    <!-- Vista de tarjetas de datos -->
+    <div class="cards-container">
+      <div *ngFor="let item of datos" class="data-card">
+        <h4>Detalles del Hábitat</h4>
+        <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p>
+        <p><strong>Clima:</strong> {{ item.clima }}</p>
+        <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p>
+      </div>
+    </div>
+  </div>
 </ion-content>
