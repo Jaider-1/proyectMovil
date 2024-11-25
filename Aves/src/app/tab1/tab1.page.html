@@ -1,17 +1,45 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 1 hola
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Catálogo de Aves</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="abrirFormulario()">
+        <ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let ave of aves">
+      <ion-label>
+        <h2>{{ ave.nombreComun }}</h2>
+        <p><em>{{ ave.nombreCientifico }}</em></p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <ion-modal [(isOpen)]="mostrarFormulario">
+    <ion-header>
+      <ion-toolbar color="secondary">
+        <ion-title>Agregar Nuevo Catálogo</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="cerrarFormulario()">Cerrar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-item>
+        <ion-label position="floating">Nombre Común</ion-label>
+        <ion-input [(ngModel)]="nuevoAve.nombreComun"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Nombre Científico</ion-label>
+        <ion-input [(ngModel)]="nuevoAve.nombreCientifico"></ion-input>
+      </ion-item>
+      <ion-footer>
+        <ion-button expand="block" (click)="agregarAve()">Guardar</ion-button>
+      </ion-footer>
+    </ion-content>
+  </ion-modal>
 </ion-content>
