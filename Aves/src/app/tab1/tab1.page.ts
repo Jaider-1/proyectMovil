@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-aves',
-  templateUrl: './aves.page.html',
-  styleUrls: ['./aves.page.scss'],
+  templateUrl: './tab1.page.html',
+  styleUrls: ['./tab1.page.sccs'],
 })
 export class AvesPage {
   // Listado de aves
