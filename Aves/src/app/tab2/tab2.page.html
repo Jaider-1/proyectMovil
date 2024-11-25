@@ -1,14 +1,16 @@
 <ion-content>
   <!-- Encabezado -->
   <div class="header">
-    <h2>Información del Hábitat</h2>
+    <h2>Información del Hábitat de Aves</h2> <!-- Título actualizado para contexto de aves -->
   </div>
 
-  <!-- Contenedor principal -->
+  <!-- Contenedor principal de la página -->
   <div class="main-container">
-    <!-- Opciones de selección -->
+    <!-- Tarjeta para la selección de opciones -->
     <div class="card">
-      <h3>Detalles del Hábitat</h3>
+      <h3>Detalles del Hábitat de Aves</h3> <!-- Título de la tarjeta ajustado -->
+
+      <!-- Opción para seleccionar el tipo de hábitat para aves -->
       <ion-item>
         <ion-label>Tipo de Hábitat</ion-label>
         <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat">
@@ -21,6 +23,7 @@
         </ion-select>
       </ion-item>
 
+      <!-- Opción para seleccionar el clima en el hábitat -->
       <ion-item>
         <ion-label>Clima</ion-label>
         <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima">
@@ -32,6 +35,7 @@
         </ion-select>
       </ion-item>
 
+      <!-- Opción para seleccionar el tipo de vegetación presente en el hábitat -->
       <ion-item>
         <ion-label>Vegetación</ion-label>
         <ion-select [(ngModel)]="vegetacion" placeholder="Selecciona la vegetación">
@@ -44,13 +48,15 @@
       </ion-item>
     </div>
 
-    <!-- Botón para guardar -->
-    <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
+    <!-- Botón para guardar la selección realizada -->
+    <div class="button-container">
+      <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
+    </div>
 
-    <!-- Vista de tarjetas de datos -->
+    <!-- Sección para mostrar las tarjetas con los datos ingresados -->
     <div class="cards-container">
       <div *ngFor="let item of datos" class="data-card">
-        <h4>Detalles del Hábitat</h4>
+        <h4>Detalles del Hábitat de Aves</h4>
         <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p>
         <p><strong>Clima:</strong> {{ item.clima }}</p>
         <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p>

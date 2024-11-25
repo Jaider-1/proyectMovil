@@ -1,136 +1,120 @@
-/* Fondo general */
+/* Estilos generales para el contenido */
 ion-content {
-    --background: #f5f7fa; /* Fondo claro */
+    --background: #f5f7fa; /* Fondo claro de la página */
     display: flex;
     flex-direction: column;
 }
 
-/* Encabezado */
+/* Estilos para el encabezado */
 .header {
-    background-color: #007bff; /* Azul principal */
-    color: var(--text-color, white); /* Color de texto adaptado */
+    background-color: #007bff; /* Color de fondo azul del encabezado */
+    color: var(--text-color, white); /* Color de texto blanco */
     text-align: center;
     padding: 15px 0;
     font-size: 24px;
     font-weight: bold;
-    border-bottom: 3px solid #0056b3; /* Detalle de borde */
+    border-bottom: 3px solid #0056b3; /* Borde inferior azul */
 }
 
-/* Contenedor principal */
+/* Estilos para el contenedor principal */
 .main-container {
     padding: 20px;
 }
 
-/* Tarjeta de selección */
+/* Estilos de las tarjetas de selección */
 .card {
     background-color: white;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para las tarjetas */
+    padding: 25px;
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-/* Título de la tarjeta */
+/* Estilos para los títulos de las tarjetas */
 .card h3 {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 15px;
-    color: var(--primary-color, #007bff); /* Color adaptado */
+    color: var(--primary-color, #007bff); /* Color de texto del título */
     text-align: center;
+    font-weight: bold;
+    text-transform: uppercase; /* Texto en mayúsculas */
 }
 
-/* Contenedor del botón */
+/* Estilos para las opciones de los select */
+ion-item {
+    --highlight-color: #007bff; /* Resaltado en azul */
+}
+
+/* Estilos para las etiquetas (labels) */
+ion-label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #555; /* Color más suave para las etiquetas */
+}
+
+/* Estilos para el ion-select */
+ion-select {
+    --background: #f0f0f5;
+    --border-radius: 8px;
+    --padding-start: 10px;
+    font-size: 16px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Estilos para el ion-select cuando está seleccionado */
+ion-select:focus {
+    --background: #e1e1f0;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Resaltado azul al seleccionar */
+}
+
+/* Estilos para el botón de guardar */
 .button-container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centra el botón horizontalmente */
     margin-top: 20px;
 }
 
-/* Botón ajustado */
 .save-button {
-    background-color: var(--primary-color, #007bff); /* Azul principal */
+    background-color: var(--primary-color, #007bff); /* Color de fondo del botón */
     border-radius: 20px;
     font-weight: bold;
-    color: var(--text-color, white); /* Texto adaptado al color del tema */
-    width: 150px;
-    padding: 12px 24px;
+    color: var(--text-color, white); /* Color de texto blanco en el botón */
+    width: 60%; /* Asegura que el botón tenga un ancho razonable */
+    padding: 12px 0;
     font-size: 16px;
     border: none;
     cursor: pointer;
 }
 
+/* Cambio de color del botón al hacer hover */
 .save-button:hover {
-    background-color: var(--primary-dark-color, #0056b3); /* Cambio de color al pasar el cursor */
+    background-color: var(--primary-dark-color, #0056b3); /* Color más oscuro al pasar el cursor */
 }
 
-/* Contenedor de tarjetas de datos */
+/* Estilos para el contenedor de las tarjetas de datos */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);  /* Configura dos columnas */
-    gap: 10px;  /* Reduce el espacio entre las tarjetas */
-    justify-items: stretch;  /* Asegura que las tarjetas ocupen todo el ancho disponible */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas para las tarjetas */
+    gap: 10px;
+    justify-items: stretch; /* Las tarjetas ocuparán el ancho completo */
     margin-top: 10px;
 }
 
-/* Tarjeta de datos */
+/* Estilos para las tarjetas de datos */
 .data-card {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 20px; /* Asegúrate de agregar la unidad de medida */
     text-align: left;
     width: 100%;
-    height: 250px;  /* Aumentar la altura de las tarjetas */
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 10px;  /* Ajustado el margen inferior */
-}
-
-/* Ajuste de los encabezados dentro de las tarjetas */
-.data-card h4 {
-    font-size: 16px;
     margin-bottom: 10px;
-    color: var(--text-color, #333); /* Color del texto en las tarjetas */
-}
-
-/* Ajuste de los párrafos dentro de las tarjetas */
-.data-card p {
-    font-size: 14px;
-    margin: 5px 0;
-}
-
-/* Definición de los colores según el modo */
-:root {
-    --primary-color: #007bff; /* Azul principal */
-    --primary-dark-color: #0056b3; /* Azul oscuro */
-    --text-color: #333; /* Color principal del texto */
-}
-
-/* Para el tema oscuro */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --background: #333; /* Fondo oscuro */
-        --primary-color: #4e8ef7; /* Azul más claro para el tema oscuro */
-        --primary-dark-color: #3a74c1; /* Azul más oscuro */
-        --text-color: #fff; /* Texto blanco */
-    }
-
-    .card, .data-card {
-        background-color: #444; /* Fondo más oscuro para las tarjetas */
-        color: var(--text-color, white); /* Texto blanco para las tarjetas */
-    }
-
-    .save-button {
-        background-color: var(--primary-color, #4e8ef7); /* Ajustar el color del botón */
-        color: var(--text-color, white); /* Texto blanco en el botón */
-    }
-
-    .header {
-        color: var(--text-color, white); /* Texto blanco en el encabezado */
-    }
-
-    .data-card h4 {
-        color: var(--text-color, white); /* Texto blanco en los subtítulos de las tarjetas */
-    }
 }
