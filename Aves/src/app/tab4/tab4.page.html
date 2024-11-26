@@ -1,41 +1,11 @@
-<ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>Especies</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content class="ion-padding" color="dark">
-  <div class="container">
+  <div class="main-container">
 
-    <!-- Tabla de Especies -->
-    <ion-card class="table-container">
-      <ion-card-header>
-        <ion-card-title>Especies</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <ion-grid>
-          <ion-row class="header-row">
-            <ion-col size="3"><strong>ID Especie</strong></ion-col>
-            <ion-col size="3"><strong>Nombre Científico</strong></ion-col>
-            <ion-col size="3"><strong>Nombre Común</strong></ion-col>
-            <ion-col size="3"><strong>Descripción</strong></ion-col>
-          </ion-row>
-          <!-- Ejemplo de fila -->
-          <ion-row>
-            <ion-col size="3">001</ion-col>
-            <ion-col size="3">Ursus arctos</ion-col>
-            <ion-col size="3">Oso</ion-col>
-            <ion-col size="3">Mamífero carnívoro</ion-col>
-          </ion-row>
-        </ion-grid>
-      </ion-card-content>
-    </ion-card>
-
-    <!-- Formulario para Añadir Nueva Especie -->
+    <!-- Formulario para Añadir o Editar Especie -->
     <div class="form-container">
-      <ion-card>
+      <ion-card class="form-card">
         <ion-card-header>
-          <ion-card-title>Añadir Nueva Especie</ion-card-title>
+          <ion-card-title>Añadir o Editar Especie</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <ion-item>
@@ -54,11 +24,41 @@
             <ion-label position="stacked">Descripción</ion-label>
             <ion-textarea placeholder="Descripción de la especie"></ion-textarea>
           </ion-item>
-          <ion-button expand="block" color="success">Añadir Especie</ion-button>
+          <ion-button expand="block" color="success">Guardar</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <!-- Tabla de Especies -->
+    <div class="table-container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Especies</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid>
+            <ion-row class="header-row">
+              <ion-col size="2"><strong>ID Especie</strong></ion-col>
+              <ion-col size="3"><strong>Nombre Científico</strong></ion-col>
+              <ion-col size="2"><strong>Nombre Común</strong></ion-col>
+              <ion-col size="3"><strong>Descripción</strong></ion-col>
+              <ion-col size="2"><strong>Acciones</strong></ion-col>
+            </ion-row>
+            <!-- Ejemplo de fila -->
+            <ion-row>
+              <ion-col size="2">001</ion-col>
+              <ion-col size="3">Ursus arctos</ion-col>
+              <ion-col size="2">Oso</ion-col>
+              <ion-col size="3">Mamífero carnívoro</ion-col>
+              <ion-col size="2">
+                <ion-button color="warning" size="small">Editar</ion-button>
+                <ion-button color="danger" size="small">Eliminar</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
         </ion-card-content>
       </ion-card>
     </div>
 
   </div>
 </ion-content>
-
