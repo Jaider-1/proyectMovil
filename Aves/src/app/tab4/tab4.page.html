@@ -1,4 +1,4 @@
-<ion-content class="ion-padding" color="dark">
+<ion-content class="ion-padding" color="dark" style="--background: url('/assets/imagen.png') no-repeat center center / cover;">
   <div class="main-container">
 
     <!-- Formulario para Añadir o Editar Especie -->
@@ -10,19 +10,19 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="stacked">ID Especie</ion-label>
-            <ion-input placeholder="Ej. 003"></ion-input>
+            <ion-input id="idEspecie" class="custom-input" placeholder="Ej. 003"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Nombre Científico</ion-label>
-            <ion-input placeholder="Ej. Ursus arctos"></ion-input>
+            <ion-input id="nombreCientifico" class="custom-input" placeholder="Ej. Ursus arctos"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Nombre Común</ion-label>
-            <ion-input placeholder="Ej. Oso"></ion-input>
+            <ion-input id="nombreComun" class="custom-input" placeholder="Ej. Oso"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Descripción</ion-label>
-            <ion-textarea placeholder="Descripción de la especie"></ion-textarea>
+            <ion-textarea id="descripcion" class="custom-input" placeholder="Descripción de la especie"></ion-textarea>
           </ion-item>
           <ion-button expand="block" color="success">Guardar</ion-button>
         </ion-card-content>
@@ -44,15 +44,14 @@
               <ion-col size="3"><strong>Descripción</strong></ion-col>
               <ion-col size="2"><strong>Acciones</strong></ion-col>
             </ion-row>
-            <!-- Ejemplo de fila -->
-            <ion-row>
-              <ion-col size="2">001</ion-col>
-              <ion-col size="3">Ursus arctos</ion-col>
-              <ion-col size="2">Oso</ion-col>
-              <ion-col size="3">Mamífero carnívoro</ion-col>
+            <ion-row *ngFor="let especie of especies">
+              <ion-col size="2">{{ especie.id }}</ion-col>
+              <ion-col size="3">{{ especie.nombreCientifico }}</ion-col>
+              <ion-col size="2">{{ especie.nombreComun }}</ion-col>
+              <ion-col size="3">{{ especie.descripcion }}</ion-col>
               <ion-col size="2">
-                <ion-button color="warning" size="small">Editar</ion-button>
-                <ion-button color="danger" size="small">Eliminar</ion-button>
+                <ion-button color="warning" size="small" (click)="editarEspecie(especie)">Editar</ion-button>
+                <ion-button color="danger" size="small" (click)="eliminarEspecie(especie.id)">Eliminar</ion-button>
               </ion-col>
             </ion-row>
           </ion-grid>
@@ -62,3 +61,5 @@
 
   </div>
 </ion-content>
+
+

@@ -10,7 +10,7 @@ ion-content {
   overflow: hidden;
 
   /* GIF de fondo */
-  background: url('/assets/images/planet-earth.gif') no-repeat center center fixed;
+  --background: url('/assets/img_tab4.gif') no-repeat center center / cover;
   background-size: cover;
 }
 
@@ -115,4 +115,26 @@ ion-card-content {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 10px;
 }
+
+.custom-input {
+  --background: rgba(169, 221, 223, 0); /* Fondo semitransparente */
+  --placeholder-color: #ccc; /* Color del texto del placeholder */
+  --color: #ffffff00; /* Color del texto */
+  --padding-start: 10px; /* Espaciado interno */
+  --padding-end: 10px;
+  --border-radius: 15px; /* Bordes redondeados */
+  --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.209); /* Sombra del input */
+  --border: 1px solid #28a745; /* Color del borde */
+  --highlight-background: rgba(40, 167, 69, 0.3); /* Fondo al interactuar */
+}
+
+.custom-input:focus {
+  --border-color: #28a745; /* Color de borde al enfocarse */
+  --box-shadow: 0 0 8px rgba(40, 167, 69, 0.5); /* Sombra al enfocarse */
+}
+
+ion-textarea.custom-input {
+  --min-height: 100px; /* Altura mínima para el textarea */
+}
+/* styles.css */
 
