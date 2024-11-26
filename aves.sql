@@ -1,7 +1,80 @@
 -- Crear base de datos
-CREATE DATABASE IF NOT EXISTS aves;
+CREATE DATABASE CatalogoAves;
 
 -- Usar la base de datos
-USE aves;
+USE CatalogoAves;
 
--- Tablas de la base de datos aves
+-- Tabla: Especie
+CREATE TABLE Especie (
+    ID_Especie INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Cientifico VARCHAR(255) NOT NULL,
+    Nom_Comun VARCHAR(255) NOT NULL,
+    Descripcion TEXT
+);
+
+-- Tabla: Raza
+CREATE TABLE Raza (
+    ID_Raza INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Origen VARCHAR(255),
+    Carac_Fisicas TEXT,
+    ID_Especie INT,
+    FOREIGN KEY (ID_Especie) REFERENCES Especie(ID_Especie)
+);
+
+-- Tabla: LugarHabitado
+CREATE TABLE LugarHabitado (
+    ID_LugarHabitat INT AUTO_INCREMENT PRIMARY KEY,
+    Tipo_Habitat VARCHAR(255) NOT NULL,
+    Clima VARCHAR(255),
+    Vegetacion TEXT
+);
+
+-- Tabla: Ave
+CREATE TABLE Ave (
+    ID_Ave INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Cientifico VARCHAR(255) NOT NULL,
+    Nom_Comun VARCHAR(255) NOT NULL,
+    Descripcion TEXT,
+    ID_Especie INT,
+    FOREIGN KEY (ID_Especie) REFERENCES Especie(ID_Especie)
+);
+
+-- Tabla: Continente
+CREATE TABLE Continente (
+    ID_Continente INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Ubicacion TEXT,
+    Caracteristicas TEXT
+);
+
+-- Tabla: Pais
+CREATE TABLE Pais (
+    ID_Pais INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Capital VARCHAR(255),
+    Ubicacion TEXT,
+    Caracteristicas TEXT,
+    ID_Continente INT,
+    FOREIGN KEY (ID_Continente) REFERENCES Continente(ID_Continente)
+);
+
+-- Tabla: Departamento
+CREATE TABLE Departamento (
+    ID_Departamento INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Ubicacion TEXT,
+    Caracteristicas TEXT,
+    ID_Pais INT,
+    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID_Pais)
+);
+
+-- Tabla: Municipio
+CREATE TABLE Municipio (
+    ID_Municipio INT AUTO_INCREMENT PRIMARY KEY,
+    Nombre VARCHAR(255) NOT NULL,
+    Ubicacion TEXT,
+    Caracteristicas TEXT,
+    ID_Departamento INT,
+    FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento)
+);
