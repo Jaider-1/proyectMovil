@@ -1,16 +1,16 @@
 <ion-content>
   <!-- Encabezado -->
   <div class="header">
-    <h2>Información del Hábitat de Aves</h2> <!-- Título actualizado para contexto de aves -->
+    <h2>Información del Hábitat de Aves</h2>
   </div>
 
   <!-- Contenedor principal de la página -->
   <div class="main-container">
     <!-- Tarjeta para la selección de opciones -->
     <div class="card">
-      <h3>Detalles del Hábitat de Aves</h3> <!-- Título de la tarjeta ajustado -->
+      <h3>Detalles del Hábitat de Aves</h3>
 
-      <!-- Opción para seleccionar el tipo de hábitat para aves -->
+      <!-- Selección del tipo de hábitat -->
       <ion-item>
         <ion-label>Tipo de Hábitat</ion-label>
         <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat">
@@ -23,7 +23,7 @@
         </ion-select>
       </ion-item>
 
-      <!-- Opción para seleccionar el clima en el hábitat -->
+      <!-- Selección del clima -->
       <ion-item>
         <ion-label>Clima</ion-label>
         <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima">
@@ -35,7 +35,7 @@
         </ion-select>
       </ion-item>
 
-      <!-- Opción para seleccionar el tipo de vegetación presente en el hábitat -->
+      <!-- Selección del tipo de vegetación -->
       <ion-item>
         <ion-label>Vegetación</ion-label>
         <ion-select [(ngModel)]="vegetacion" placeholder="Selecciona la vegetación">
@@ -60,6 +60,10 @@
         <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p>
         <p><strong>Clima:</strong> {{ item.clima }}</p>
         <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p>
+        <div class="button-group">
+          <ion-button color="primary" size="small" (click)="editarDato(item.id)">Editar</ion-button>
+          <ion-button color="danger" size="small" (click)="eliminarDato(item.id)">Eliminar</ion-button>
+        </div>
       </div>
     </div>
   </div>
