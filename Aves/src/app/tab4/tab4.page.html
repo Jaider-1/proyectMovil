@@ -10,21 +10,21 @@
         <ion-card-content>
           <ion-item>
             <ion-label position="stacked">ID Especie</ion-label>
-            <ion-input id="idEspecie" class="custom-input" placeholder="Ej. 003"></ion-input>
+            <ion-input id="idEspecie" placeholder="Ej. 003"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Nombre Científico</ion-label>
-            <ion-input id="nombreCientifico" class="custom-input" placeholder="Ej. Ursus arctos"></ion-input>
+            <ion-input id="nombreCientifico" placeholder="Ej. Ursus arctos"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Nombre Común</ion-label>
-            <ion-input id="nombreComun" class="custom-input" placeholder="Ej. Oso"></ion-input>
+            <ion-input id="nombreComun" placeholder="Ej. Oso"></ion-input>
           </ion-item>
           <ion-item>
             <ion-label position="stacked">Descripción</ion-label>
-            <ion-textarea id="descripcion" class="custom-input" placeholder="Descripción de la especie"></ion-textarea>
+            <ion-textarea id="descripcion" placeholder="Descripción de la especie"></ion-textarea>
           </ion-item>
-          <ion-button expand="block" color="success">Guardar</ion-button>
+          <ion-button expand="block" color="success" (click)="guardarEspecie()">Guardar</ion-button>
         </ion-card-content>
       </ion-card>
     </div>
@@ -61,5 +61,4 @@
 
   </div>
 </ion-content>
-
 
