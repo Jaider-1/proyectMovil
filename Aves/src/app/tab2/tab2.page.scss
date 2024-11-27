@@ -12,13 +12,13 @@ ion-content {
 
 /* Encabezado */
 .header {
-  background-color: rgba(0, 123, 255, 0.8);
+  background: linear-gradient(135deg, #1e3b8aa4, #10b9813e); /* Gradiente de azul a verde */
   color: white;
   text-align: center;
   padding: 15px 0;
   font-size: 24px;
   font-weight: bold;
-  border-bottom: 3px solid #0056b3;
+  border-bottom: 3px solid #10b9816d; /* Borde verde */
   position: relative;
   z-index: 10;
 }
@@ -33,16 +33,16 @@ ion-content {
 
 /* Tarjetas de selección */
 .card {
-  background-color: rgba(255, 255, 255, 0.721);
+  background: linear-gradient(135deg, #1e3b8a7a, #10b98150); /* Gradiente de azul a verde */
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(160, 9, 9, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra más suave */
   padding: 25px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
   text-align: center;
-  color: rgb(4, 109, 255);
+  color: white; /* Color del texto blanco para contraste */
 }
 
 /* Botón de guardar */
@@ -53,7 +53,7 @@ ion-content {
 }
 
 .save-button {
-  background-color: #007bffb3;
+  background-color: #1e3b8a7f; /* Azul oscuro */
   border-radius: 20px;
   font-weight: bold;
   color: white;
@@ -64,7 +64,7 @@ ion-content {
   cursor: pointer;
 
   &:hover {
-    background-color: #0057b3af;
+    background-color: #10b9815e; /* Verde brillante al pasar el ratón */
   }
 }
 
@@ -79,7 +79,7 @@ ion-content {
 
 /* Animación para las tarjetas */
 .data-card {
-  background-color: rgba(255, 255, 255, 0.878);
+  background: linear-gradient(135deg, #1e3b8a83, #10b98187); /* Gradiente de azul a verde */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -90,7 +90,7 @@ ion-content {
   flex-direction: column;
   justify-content: space-between;
   margin-bottom: 10px;
-  color: black;
+  color: white; /* Texto en blanco para resaltar sobre el fondo del gradiente */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
