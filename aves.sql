@@ -30,16 +30,6 @@ CREATE TABLE LugarHabitado (
     Vegetacion TEXT
 );
 
--- Tabla: Ave
-CREATE TABLE Ave (
-    ID_Ave INT AUTO_INCREMENT PRIMARY KEY,
-    Nom_Cientifico VARCHAR(255) NOT NULL,
-    Nom_Comun VARCHAR(255) NOT NULL,
-    Descripcion TEXT,
-    ID_Especie INT,
-    FOREIGN KEY (ID_Especie) REFERENCES Especie(ID_Especie)
-);
-
 -- Tabla: Continente
 CREATE TABLE Continente (
     ID_Continente INT AUTO_INCREMENT PRIMARY KEY,
@@ -77,4 +67,24 @@ CREATE TABLE Municipio (
     Caracteristicas TEXT,
     ID_Departamento INT,
     FOREIGN KEY (ID_Departamento) REFERENCES Departamento(ID_Departamento)
+);
+
+-- Tabla: Ave (Principal)
+CREATE TABLE Ave (
+    ID_Ave INT AUTO_INCREMENT PRIMARY KEY,
+    Nom_Cientifico VARCHAR(255) NOT NULL,
+    Nom_Comun VARCHAR(255) NOT NULL,
+    Descripcion TEXT,
+    ID_Especie INT,
+    ID_Raza INT,
+    ID_LugarHabitat INT,
+    ID_Municipio INT,
+    ID_Pais INT,
+    ID_Continente INT,
+    FOREIGN KEY (ID_Especie) REFERENCES Especie(ID_Especie),
+    FOREIGN KEY (ID_Raza) REFERENCES Raza(ID_Raza),
+    FOREIGN KEY (ID_LugarHabitat) REFERENCES LugarHabitado(ID_LugarHabitat),
+    FOREIGN KEY (ID_Municipio) REFERENCES Municipio(ID_Municipio),
+    FOREIGN KEY (ID_Pais) REFERENCES Pais(ID_Pais),
+    FOREIGN KEY (ID_Continente) REFERENCES Continente(ID_Continente)
 );
