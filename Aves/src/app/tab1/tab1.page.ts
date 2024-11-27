@@ -6,69 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  // Lista de aves
-  birds = [
+
+  // Ejemplo de los datos que se mostrarán en la tabla
+  aves = [
     {
-      commonName: 'Colibrí',
-      scientificName: 'Trochilidae',
-      photo: 'https://via.placeholder.com/100',
+      descripcion: 'Ave pequeña con alas de colores brillantes',
+      especie: 'Avestruz',
+      raza: 'Raza X',
+      habitat: 'Bosques tropicales',
+      municipio: 'Municipio 1',
+      pais: 'Colombia',
+      continente: 'América',
+      departamento: 'Cundinamarca'
     },
     {
-      commonName: 'Águila',
-      scientificName: 'Aquila chrysaetos',
-      photo: 'https://via.placeholder.com/100',
-    },
+      descripcion: 'Ave de gran tamaño con pico largo',
+      especie: 'Águila Real',
+      raza: 'Raza Y',
+      habitat: 'Montañas',
+      municipio: 'Municipio 2',
+      pais: 'Colombia',
+      continente: 'América',
+      departamento: 'Antioquia'
+    }
+    // Más registros pueden ir aquí
   ];
 
-  // Término de búsqueda
-  searchTerm: string = '';
+  constructor() {}
 
-  // Nueva ave que se añadirá
-  newBird = {
-    commonName: '',
-    scientificName: '',
-    photo: '',
-  };
-
-  /**
-   * Filtra las aves por nombre común o científico
-   * @returns Lista de aves filtradas
-   */
-  get filteredBirds() {
-    const term = this.searchTerm.toLowerCase();
-    return this.birds.filter(
-      (bird) =>
-        bird.commonName.toLowerCase().includes(term) ||
-        bird.scientificName.toLowerCase().includes(term)
-    );
-  }
-
-  /**
-   * Maneja la selección de un archivo de imagen
-   * @param event Evento del input de tipo file
-   */
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.newBird.photo = reader.result as string;
-      };
-      reader.readAsDataURL(file);
-    }
-  }
-
-  /**
-   * Añade una nueva ave a la lista
-   */
-  addBird() {
-    if (this.newBird.commonName && this.newBird.scientificName && this.newBird.photo) {
-      this.birds.push({ ...this.newBird });
-      this.newBird = { commonName: '', scientificName: '', photo: '' }; // Limpia el formulario
-      alert('¡Ave añadida exitosamente!');
-    } else {
-      alert('Por favor, completa todos los campos.');
-    }
-  }
 }

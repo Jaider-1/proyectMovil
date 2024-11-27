@@ -1,47 +1,23 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-title>Catálogo de Aves</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
-  <!-- Campo de búsqueda -->
-  <ion-searchbar
-    [(ngModel)]="searchTerm"
-    placeholder="Buscar aves por nombre común o científico"
-  ></ion-searchbar>
-
-  <!-- Lista de aves -->
-  <ion-list>
-    <ion-item *ngFor="let bird of filteredBirds">
-      <ion-thumbnail slot="start">
-        <img [src]="bird.photo" alt="{{ bird.commonName }}" />
-      </ion-thumbnail>
-      <ion-label>
-        <h2>{{ bird.commonName }}</h2>
-        <p>{{ bird.scientificName }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
-  <!-- Formulario para añadir nuevas aves -->
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Añadir Nueva Ave</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-item>
-        <ion-label position="floating">Nombre Común</ion-label>
-        <ion-input [(ngModel)]="newBird.commonName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="floating">Nombre Científico</ion-label>
-        <ion-input [(ngModel)]="newBird.scientificName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <input type="file" (change)="onFileSelected($event)" />
-      </ion-item>
-      <ion-button expand="block" (click)="addBird()">Añadir Ave</ion-button>
-    </ion-card-content>
-  </ion-card>
+  <div class="content-wrapper">
+    <div class="table-container">
+      <h2>Catálogo de Aves</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre Común</th>
+            <th>Nombre Científico</th>
+            <th>Especie</th>
+            <th>Raza</th>
+            <th>Hábitat</th>
+            <th>Continente</th>
+            <th>Pais</th>
+            <th>Departamento</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
 </ion-content>
+
