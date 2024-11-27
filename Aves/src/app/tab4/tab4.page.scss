@@ -8,7 +8,7 @@ ion-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  io-backgound-color:var(--background);
+ 
 
   /* GIF de fondo */
   --background: url('/assets/img_tab4.gif') no-repeat center center / cover;
@@ -19,10 +19,14 @@ ion-content {
 .main-container {
   display: flex;
   flex-direction: row;
+  flex-direction: column; /* En móviles, los elementos estarán en columna */
   justify-content: space-between;
   align-items: flex-start;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
   gap: 20px;
-  padding: 20px;
+ 
 
   /* Fondo translúcido para los componentes */
   background: rgba(0, 0, 0, 0.6);
@@ -37,7 +41,7 @@ ion-content {
 }
 
 .form-card {
-  background: linear-gradient(135deg, #1e3a8a, #10b981);
+  background: linear-gradient(135deg, #1e3b8a5d, #10b98151);
   color: white;
   border-radius: 20px;
   padding: 15px;
@@ -63,7 +67,7 @@ ion-card-title {
 }
 
 .table-container ion-card {
-  background: linear-gradient(135deg, #10b981, #1e3a8a);
+  background: linear-gradient(135deg, #10b98150, #1e3b8a4b);
   color: white;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -72,7 +76,7 @@ ion-card-title {
 
 .table-container ion-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 16px rgba(127, 127, 127, 0.562);
 }
 
 .header-row ion-col {
@@ -97,7 +101,7 @@ ion-button {
 
 ion-button:hover {
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(117, 116, 116, 0.5);
 }
 
 /* Botones de acción en la tabla */
@@ -113,8 +117,54 @@ ion-button[color="danger"] {
 
 /* Fondo translúcido para resaltar los contenedores */
 ion-card-content {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.223);
   border-radius: 10px;
 }
 
+.responsive-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
+  gap: 16px; /* Espaciado entre el formulario y la tabla */
+  width: 100%;
+  max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
+}
+
+form-container,
+.table-container {
+  flex: 1 1 100%; /* Por defecto, ocupan el 100% del ancho */
+}
+
+@media (min-width: 768px) {
+  .responsive-container {
+    flex-direction: row; /* En pantallas más grandes, se alinean en fila */
+  }
+
+  .form-container,
+  .table-container {
+    flex: 1 1 48%; /* Cada contenedor ocupa el 48% del ancho con margen */
+  }
+}
+
+.table-container ion-card-content {
+  max-height: 400px; /* Altura máxima para la tabla */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.table-container ion-card-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.table-container ion-card-content::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+:root {
+  /* Tamaño base de las fuentes */
+  --font-small: 11px; /* Para móviles pequeños */
+  --font-medium: 16px; /* Para tablets */
+  --font-large: 18px; /* Para pantallas grandes */
+}
 
