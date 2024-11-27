@@ -1,17 +1,102 @@
+<!-- tab3.page.html -->
+
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
+  <ion-toolbar color="primary">
+    <ion-title class="center-title">
+      Gestión de Municipios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="content-wrapper">
+    <!-- Columna Izquierda: Formulario -->
+    <div class="form-container">
+      <h2>{{ municipio.editando ? 'Editar' : 'Nuevo' }} Municipio</h2>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+      <ion-item>
+        <ion-label position="stacked">ID Municipio</ion-label>
+        <ion-input
+          [(ngModel)]="municipio.id"
+          type="number"
+          readonly
+          class="ion-text-right">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Nombre</ion-label>
+        <ion-input
+          [(ngModel)]="municipio.nombre"
+          placeholder="Ingrese el nombre del municipio">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Ubicación</ion-label>
+        <ion-input
+          [(ngModel)]="municipio.ubicacion"
+          placeholder="Ingrese la ubicación">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">Características</ion-label>
+        <ion-textarea
+          [(ngModel)]="municipio.caracteristicas"
+          placeholder="Describa las características del municipio">
+        </ion-textarea>
+      </ion-item>
+
+      <div class="ion-padding buttons-container">
+        <ion-button 
+          size="small"
+          color="light" 
+          (click)="guardarMunicipio()" 
+          [disabled]="!municipio.nombre">
+          {{ municipio.editando ? 'ACTUALIZAR' : 'GUARDAR' }}
+        </ion-button>
+        <ion-button 
+          size="small" 
+          color="light" 
+          (click)="cancelar()" 
+          fill="outline">
+          CANCELAR
+        </ion-button>
+      </div>
+    </div>
+
+    <!-- Columna Derecha: Lista de Municipios -->
+    <div class="list-container">
+      <h2>Municipios Guardados ({{ municipios.length }})</h2>
+      <!-- Lista de Municipios -->
+      <ion-list *ngIf="municipios.length > 0; else noMunicipios">
+        <ion-item-sliding *ngFor="let m of municipios; let i = index">
+          <ion-item>
+            <ion-label>
+              <h3>{{ m.nombre }}</h3>
+              <p>
+                <ion-text color="secondary">ID: {{ m.id }}</ion-text> |
+                <ion-text color="tertiary">{{ m.ubicacion }}</ion-text>
+              </p>
+              <p>{{ m.caracteristicas }}</p>
+            </ion-label>
+            <ion-buttons slot="end">
+              <ion-button color="warning" (click)="editarMunicipio(i)">
+                <ion-icon name="create-outline"></ion-icon>
+              </ion-button>
+              <ion-button color="danger" (click)="eliminarMunicipio(i)">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-buttons>
+          </ion-item>
+        </ion-item-sliding>
+      </ion-list>
+      <ng-template #noMunicipios>
+        <ion-text color="medium" class="ion-text-center ion-padding">
+          <p>No hay municipios registrados</p>
+        </ion-text>
+      </ng-template>
+    </div>
+  </div>
 </ion-content>
