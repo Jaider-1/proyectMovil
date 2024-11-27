@@ -6,34 +6,25 @@ import { Component } from '@angular/core';
   styleUrls: ['tab1.page.scss'],
 })
 export class Tab1Page {
-  // Lista de aves
-  birds = [
-    {
-      commonName: 'Colibrí',
-      scientificName: 'Trochilidae',
-      photo: 'https://via.placeholder.com/100',
-    },
-    {
-      commonName: 'Águila',
-      scientificName: 'Aquila chrysaetos',
-      photo: 'https://via.placeholder.com/100',
-    },
-  ];
-
-  // Término de búsqueda
+  // Especificamos el tipo del arreglo como un array de objetos con las propiedades adecuadas
+  birds: { commonName: string; scientificName: string; photo: string }[] = [];
   searchTerm: string = '';
-
-  // Nueva ave que se añadirá
-  newBird = {
+  newBird: { commonName: string; scientificName: string; photo: string } = {
     commonName: '',
     scientificName: '',
     photo: '',
   };
 
-  /**
-   * Filtra las aves por nombre común o científico
-   * @returns Lista de aves filtradas
-   */
+  constructor() {}
+
+  ngOnInit() {
+    // Cargar aves desde el LocalStorage al iniciar
+    const savedBirds = localStorage.getItem('birds');
+    if (savedBirds) {
+      this.birds = JSON.parse(savedBirds); // Convierte el string almacenado a un array
+    }
+  }
+
   get filteredBirds() {
     const term = this.searchTerm.toLowerCase();
     return this.birds.filter(
@@ -43,10 +34,6 @@ export class Tab1Page {
     );
   }
 
-  /**
-   * Maneja la selección de un archivo de imagen
-   * @param event Evento del input de tipo file
-   */
   onFileSelected(event: Event) {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files[0]) {
@@ -59,13 +46,13 @@ export class Tab1Page {
     }
   }
 
-  /**
-   * Añade una nueva ave a la lista
-   */
   addBird() {
     if (this.newBird.commonName && this.newBird.scientificName && this.newBird.photo) {
       this.birds.push({ ...this.newBird });
-      this.newBird = { commonName: '', scientificName: '', photo: '' }; // Limpia el formulario
+      this.newBird = { commonName: '', scientificName: '', photo: '' };
+
+      // Guardar la lista de aves en LocalStorage
+      localStorage.setItem('birds', JSON.stringify(this.birds));
       alert('¡Ave añadida exitosamente!');
     } else {
       alert('Por favor, completa todos los campos.');
