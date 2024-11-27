@@ -1,0 +1,146 @@
+/* tab3.page.scss */
+
+:root {
+  // Paleta de colores personalizada
+  --ion-color-primary: #10b981;      // Verde esmeralda
+  --ion-color-primary-rgb: 16,185,129;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255,255,255;
+  --ion-color-primary-shade: #0ea771;
+  --ion-color-primary-tint: #28c58d;
+  --ion-color-secondary: #1e3a8a;    // Azul oscuro profundo
+  --ion-color-secondary-rgb: 30,58,138;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255,255,255;
+  --ion-color-secondary-shade: #1a3276;
+  --ion-color-secondary-tint: #354d92;
+  --ion-color-tertiary: #f59e0b;     // Amarillo de advertencia
+  --ion-color-tertiary-rgb: 245,158,11;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255,255,255;
+  --ion-color-tertiary-shade: #d97706;
+  --ion-color-tertiary-tint: #f7b328;
+  --ion-color-danger: #ef4444;       // Rojo de peligro
+  --ion-color-danger-rgb: 239,68,68;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255,255,255;
+  --ion-color-danger-shade: #cd3d3d;
+  --ion-color-danger-tint: #eb5757;
+}
+
+// Centrar título
+.center-title {
+  text-align: center;
+  margin: 0 auto;
+}
+
+// Contenedor general
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  align-items: center; /* Centra los elementos verticalmente */
+  gap: 30px; /* Espacio entre los cuadros */
+  padding: 20px;
+  min-height: 80vh; /* Mantiene el área ocupada verticalmente */
+  background: rgba(0, 0, 0, 0.6); /* Fondo translúcido oscuro */
+}
+
+.form-container,
+.list-container {
+  flex: 0 1 300px; /* Tamaño fijo de los cuadros */
+  padding: 15px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container {
+  background: linear-gradient(135deg, #1e3a8a, #10b981);
+}
+
+.list-container {
+  background: linear-gradient(135deg, #10b981, #1e3a8a);
+}
+
+.form-container:hover,
+.list-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+}
+
+// Estilo para títulos
+h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #ffffff;
+  text-align: center;
+  border-bottom: 2px solid #10b981;
+  padding-bottom: 8px;
+  text-shadow: 0px 0px 5px #1e3a8a;
+}
+
+// Botones
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+ion-button {
+  --background: white;
+  --color: black;
+  border-radius: 10px;
+  padding: 5px 15px;
+  font-size: 14px;
+}
+
+ion-button[fill="outline"] {
+  --border-color: black;
+  --background: transparent;
+}
+
+ion-button:hover {
+  --background: #e0e0e0;
+}
+
+// Estilos para elementos deslizantes
+ion-item-sliding {
+  margin-bottom: 8px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+ion-item {
+  --background: transparent;
+  --color: white;
+}
+
+// Texto de placeholder y labels
+ion-label, ion-input, ion-textarea {
+  color: white !important;
+  --placeholder-color: rgba(255, 255, 255, 0.7);
+}
+
+// Estilo para lista vacía
+.ion-text-center {
+  color: rgba(255, 255, 255, 0.7) !important;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column; /* Apila los cuadros verticalmente */
+    justify-content: center;
+    align-items: center;
+  }
+  .form-container,
+  .list-container {
+    width: 100%; /* Ocupa el ancho completo en pantallas pequeñas */
+    max-width: 400px;
+  }
+}
