@@ -10,6 +10,14 @@
     <div class="card">
       <h3>Detalles del Hábitat de Aves</h3>
 
+      <!-- ID_LugarHabitado en la barra negra (campo no editable) -->
+      <ion-item>
+        <ion-label class="id-lugar-label">
+          <span class="titulo-id">ID_LugarHabitado:</span>
+          <span class="numero-id">{{ idLugarHabitado }}</span>
+        </ion-label>
+      </ion-item>
+
       <!-- Selección del tipo de hábitat -->
       <ion-item>
         <ion-label>Tipo de Hábitat</ion-label>
@@ -57,6 +65,7 @@
     <div class="cards-container">
       <div *ngFor="let item of datos" class="data-card">
         <h4>Detalles del Hábitat de Aves</h4>
+        <p><strong>ID_LugarHabitado:</strong> {{ item.id }}</p>
         <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p>
         <p><strong>Clima:</strong> {{ item.clima }}</p>
         <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p>

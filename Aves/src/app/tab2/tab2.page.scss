@@ -45,6 +45,32 @@ ion-content {
   color: white; /* Color del texto blanco para contraste */
 }
 
+/* Estilo específico para la barra de ID_LugarHabitado */
+.id-lugar-label {
+  display: flex; /* Utiliza Flexbox para organizar los elementos en línea */
+  justify-content: space-between; /* Espacia uniformemente los elementos */
+  align-items: center; /* Alinea verticalmente al centro los elementos hijos */
+  font-size: 18px; /* Tamaño de fuente para que sea claramente visible */
+  font-weight: bold; /* Fuente en negrita para resaltar el texto */
+  color: #c1bebe; /* Color blanco para el texto */
+  background: #1e3b8a2f; /* Fondo azul oscuro */
+  padding: 10px; /* Espaciado interno para mantener el contenido separado de los bordes */
+  border-radius: 5px; /* Bordes redondeados para un aspecto más moderno */
+}
+
+.titulo-id {
+  flex: 1; /* Este elemento ocupa el mayor espacio disponible */
+  text-align: left; /* El texto se alinea a la izquierda */
+}
+
+.numero-id {
+  flex: 0; /* El elemento ocupa solo el espacio necesario */
+  text-align: right; /* El texto se alinea a la derecha */
+  position: relative; /* Permite ajustar la posición con respecto a su contenedor */
+  left: -800px; /* Ajusta la posición hacia la izquierda de manera gradual */
+  font-size: 16px; /* Fuente ligeramente más pequeña para mostrar jerarquía */
+}
+
 /* Botón de guardar */
 .button-container {
   display: flex;
@@ -72,9 +98,9 @@ ion-content {
 .cards-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 15px; /* Mayor espacio entre las tarjetas */
   justify-items: stretch;
-  margin-top: 10px;
+  margin-top: 20px; /* Espacio superior */
 }
 
 /* Animación para las tarjetas */
@@ -82,21 +108,36 @@ ion-content {
   background: linear-gradient(135deg, #1e3b8a83, #10b98187); /* Gradiente de azul a verde */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  text-align: left;
+  padding: 25px; /* Espacio interno mayor */
+  text-align: center;
   width: 100%;
-  height: 250px;
+  height: auto; /* Altura automática para adaptarse al contenido */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: white; /* Texto en blanco para resaltar sobre el fondo del gradiente */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
+/* Estilo para el título dentro de las tarjetas */
+.data-card h4 {
+  font-size: 28px; /* Tamaño más grande para el título */
+  font-weight: bold; /* Negrita para destacarlo */
+  margin-bottom: 20px;
+}
+
+/* Estilo para los párrafos dentro de las tarjetas */
+.data-card p {
+  font-size: 22px; /* Tamaño mayor para los datos */
+  line-height: 1.8; /* Espaciado entre líneas */
+  margin: 10px 0; /* Espaciado entre los elementos */
+}
+
+/* Estilo para el texto en negrita dentro de los párrafos */
+.data-card p strong {
+  font-weight: bold;
+  color: #f8f8f8; /* Color más claro para destacar los títulos */
 }
 
 /* Estilo para tablas */
@@ -117,6 +158,19 @@ table td {
 table th {
   background-color: #007bff;
   color: white;
+}
+
+/* Estilo para los botones dentro de las tarjetas */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px; /* Separación mayor entre los botones */
+  margin-top: 15px;
+}
+
+ion-button {
+  --border-radius: 4px; /* Botones con bordes redondeados */
+  font-size: 14px; /* Tamaño del texto de los botones */
 }
 
 /* Media Queries para responsividad */
