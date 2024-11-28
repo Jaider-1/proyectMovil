@@ -2,25 +2,46 @@
   <div class="content-wrapper">
     <div class="table-container">
       <h2>Catálogo de Aves</h2>
+
+      <ion-button (click)="openForm()">Agregar Ave</ion-button>
+
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>Codigo</th>
             <th>Nombre Común</th>
             <th>Nombre Científico</th>
-            <th>Especie</th>
             <th>Raza</th>
             <th>Hábitat</th>
-            <th>Continente</th>
-            <th>Pais</th>
-            <th>Departamento</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Puedes seguir añadiendo filas según sea necesario -->
+          <tr *ngFor="let ave of aves; let i = index">
+            <td>{{ ave.codigo }}</td>
+            <td>{{ ave.nombreComun }}</td>
+            <td>{{ ave.nombreCientifico }}</td>
+            <td>{{ ave.raza }}</td>
+            <td>{{ ave.habitat }}</td>
+            <td>
+              <ion-button (click)="editAve(i)">Editar</ion-button>
+              <ion-button (click)="deleteAve(i)">Eliminar</ion-button>
+            </td>
+          </tr>
         </tbody>
       </table>
     </div>
+
+    <!-- Formulario para agregar o editar -->
+    <div *ngIf="isFormOpen">
+      <ion-input [(ngModel)]="form.codigo" placeholder="Codigo"></ion-input>
+      <ion-input [(ngModel)]="form.nombreComun" placeholder="Nombre Común"></ion-input>
+      <ion-input [(ngModel)]="form.nombreCientifico" placeholder="Nombre Científico"></ion-input>
+      <ion-input [(ngModel)]="form.raza" placeholder="Raza"></ion-input>
+      <ion-input [(ngModel)]="form.habitat" placeholder="Hábitat"></ion-input>
+
+      <ion-button (click)="saveAve()">Guardar</ion-button>
+      <ion-button (click)="closeForm()">Cancelar</ion-button>
+    </div>
   </div>
 </ion-content>
-
