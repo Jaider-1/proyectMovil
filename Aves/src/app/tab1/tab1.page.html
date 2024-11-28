@@ -11,8 +11,9 @@
             <th>Codigo</th>
             <th>Nombre Común</th>
             <th>Nombre Científico</th>
-            <th>Raza</th>
+            <th>Especie</th>
             <th>Hábitat</th>
+            <th>Municipio</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -21,8 +22,9 @@
             <td>{{ ave.codigo }}</td>
             <td>{{ ave.nombreComun }}</td>
             <td>{{ ave.nombreCientifico }}</td>
-            <td>{{ ave.raza }}</td>
+            <td>{{ ave.especie }}</td>
             <td>{{ ave.habitat }}</td>
+            <td>{{ ave.municipio }}</td>
             <td>
               <ion-button (click)="editAve(i)">Editar</ion-button>
               <ion-button (click)="deleteAve(i)">Eliminar</ion-button>
@@ -37,8 +39,10 @@
       <ion-input [(ngModel)]="form.codigo" placeholder="Codigo"></ion-input>
       <ion-input [(ngModel)]="form.nombreComun" placeholder="Nombre Común"></ion-input>
       <ion-input [(ngModel)]="form.nombreCientifico" placeholder="Nombre Científico"></ion-input>
-      <ion-input [(ngModel)]="form.raza" placeholder="Raza"></ion-input>
+      <ion-input [(ngModel)]="form.especie" placeholder="Raza"></ion-input>
       <ion-input [(ngModel)]="form.habitat" placeholder="Hábitat"></ion-input>
+      <ion-input [(ngModel)]="form.municipio" placeholder="Municipio"></ion-input>
+
 
       <ion-button (click)="saveAve()">Guardar</ion-button>
       <ion-button (click)="closeForm()">Cancelar</ion-button>

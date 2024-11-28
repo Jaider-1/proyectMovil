@@ -5,8 +5,10 @@ interface Ave {
   codigo: string;
   nombreComun: string;
   nombreCientifico: string;
-  raza: string;
+  especie: string;
   habitat: string;
+  municipio: string;
+
 }
 
 @Component({
@@ -25,8 +27,9 @@ export class Tab1Page {
     codigo: '',
     nombreComun: '',
     nombreCientifico: '',
-    raza: '',
+    especie: '',
     habitat: '',
+    municipio: '',
   };
 
   constructor() {
@@ -53,8 +56,9 @@ export class Tab1Page {
       codigo: '',
       nombreComun: '',
       nombreCientifico: '',
-      raza: '',
+      especie: '',
       habitat: '',
+      municipio: '',
     };
   }
 
@@ -65,7 +69,7 @@ export class Tab1Page {
 
   // Guardar una nueva ave o editar una existente
   saveAve() {
-    if (this.form.codigo && this.form.nombreComun && this.form.nombreCientifico && this.form.raza && this.form.habitat) {
+    if (this.form.codigo && this.form.nombreComun && this.form.nombreCientifico && this.form.especie && this.form.habitat && this.form.municipio) {
       const existingIndex = this.aves.findIndex(ave => ave.codigo === this.form.codigo);
 
       if (existingIndex === -1) {
