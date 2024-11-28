@@ -8,7 +8,7 @@
       <table>
         <thead>
           <tr>
-            <th>Codigo</th>
+            <th>Código</th>
             <th>Nombre Común</th>
             <th>Nombre Científico</th>
             <th>Especie</th>
@@ -36,13 +36,36 @@
 
     <!-- Formulario para agregar o editar -->
     <div *ngIf="isFormOpen">
-      <ion-input [(ngModel)]="form.codigo" placeholder="Codigo"></ion-input>
+      <ion-input [(ngModel)]="form.codigo" placeholder="Código"></ion-input>
       <ion-input [(ngModel)]="form.nombreComun" placeholder="Nombre Común"></ion-input>
       <ion-input [(ngModel)]="form.nombreCientifico" placeholder="Nombre Científico"></ion-input>
-      <ion-input [(ngModel)]="form.especie" placeholder="Raza"></ion-input>
-      <ion-input [(ngModel)]="form.habitat" placeholder="Hábitat"></ion-input>
-      <ion-input [(ngModel)]="form.municipio" placeholder="Municipio"></ion-input>
 
+      <ion-item>
+        <ion-label>Especie</ion-label>
+        <ion-select [(ngModel)]="form.especie" placeholder="Selecciona una especie">
+          <ion-select-option *ngFor="let especie of especies" [value]="especie.nombreCientifico">
+            {{ especie.nombreComun }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Hábitat</ion-label>
+        <ion-select [(ngModel)]="form.habitat" placeholder="Selecciona un hábitat">
+          <ion-select-option *ngFor="let habitat of habitats" [value]="habitat.tipoHabitat">
+            {{ habitat.tipoHabitat }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Municipio</ion-label>
+        <ion-select [(ngModel)]="form.municipio" placeholder="Selecciona un municipio">
+          <ion-select-option *ngFor="let municipio of municipios" [value]="municipio.nombre">
+            {{ municipio.nombre }}
+          </ion-select-option>
+        </ion-select>
+      </ion-item>
 
       <ion-button (click)="saveAve()">Guardar</ion-button>
       <ion-button (click)="closeForm()">Cancelar</ion-button>

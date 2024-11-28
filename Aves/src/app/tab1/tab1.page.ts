@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-// Definimos la interfaz para el tipo de ave
 interface Ave {
   codigo: string;
   nombreComun: string;
@@ -8,7 +7,6 @@ interface Ave {
   especie: string;
   habitat: string;
   municipio: string;
-
 }
 
 @Component({
@@ -17,12 +15,9 @@ interface Ave {
   styleUrls: ['./tab1.page.scss'],
 })
 export class Tab1Page {
-  // Lista de aves con el tipo correctamente definido
-  aves: Ave[] = [];  // Especificamos que aves es un array de tipo Ave
-
+  aves: Ave[] = [];
   isFormOpen = false;
 
-  // Inicializamos el formulario con los campos vacíos
   form: Ave = {
     codigo: '',
     nombreComun: '',
@@ -32,24 +27,43 @@ export class Tab1Page {
     municipio: '',
   };
 
+  especies: any[] = [];
+  habitats: any[] = [];
+  municipios: any[] = [];
+
   constructor() {
-    this.loadAves();  // Cargar aves desde localStorage al inicializar
+    this.loadAves();
+    this.loadEspecies();
+    this.loadHabitats();
+    this.loadMunicipios();
   }
 
-  // Cargar aves desde el localStorage
   loadAves() {
     const avesStored = localStorage.getItem('aves');
     if (avesStored) {
-      this.aves = JSON.parse(avesStored);  // Asignar los datos almacenados a aves
+      this.aves = JSON.parse(avesStored);
     }
   }
 
-  // Guardar aves en el localStorage
   saveAves() {
-    localStorage.setItem('aves', JSON.stringify(this.aves));  // Guardar la lista de aves
+    localStorage.setItem('aves', JSON.stringify(this.aves));
   }
 
-  // Abrir el formulario de agregar ave
+  loadEspecies() {
+    const especiesStored = localStorage.getItem('especies');
+    this.especies = especiesStored ? JSON.parse(especiesStored) : [];
+  }
+
+  loadHabitats() {
+    const habitatsStored = localStorage.getItem('datosHabitat');
+    this.habitats = habitatsStored ? JSON.parse(habitatsStored) : [];
+  }
+
+  loadMunicipios() {
+    const municipiosStored = localStorage.getItem('municipios');
+    this.municipios = municipiosStored ? JSON.parse(municipiosStored) : [];
+  }
+
   openForm() {
     this.isFormOpen = true;
     this.form = {
@@ -62,40 +76,34 @@ export class Tab1Page {
     };
   }
 
-  // Cerrar el formulario sin guardar
   closeForm() {
     this.isFormOpen = false;
   }
 
-  // Guardar una nueva ave o editar una existente
   saveAve() {
     if (this.form.codigo && this.form.nombreComun && this.form.nombreCientifico && this.form.especie && this.form.habitat && this.form.municipio) {
       const existingIndex = this.aves.findIndex(ave => ave.codigo === this.form.codigo);
 
       if (existingIndex === -1) {
-        // Nueva ave, la agregamos al array
         this.aves.push({ ...this.form });
       } else {
-        // Ave existente, la actualizamos
         this.aves[existingIndex] = { ...this.form };
       }
 
-      this.saveAves();  // Guardar en localStorage
-      this.closeForm(); // Cerrar formulario
+      this.saveAves();
+      this.closeForm();
     } else {
       alert('Por favor complete todos los campos');
     }
   }
 
-  // Editar ave
   editAve(index: number) {
-    this.form = { ...this.aves[index] };  // Cargar los datos de la ave en el formulario
+    this.form = { ...this.aves[index] };
     this.isFormOpen = true;
   }
 
-  // Eliminar ave
   deleteAve(index: number) {
-    this.aves.splice(index, 1);  // Eliminar el elemento del array
-    this.saveAves();  // Actualizar el localStorage
+    this.aves.splice(index, 1);
+    this.saveAves();
   }
 }
