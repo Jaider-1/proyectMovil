@@ -1,12 +1,18 @@
 <ion-content>
+  <!-- Contenedor principal del contenido -->
   <div class="content-wrapper">
+    <!-- Sección para la tabla que muestra el catálogo de aves -->
     <div class="table-container">
+      <!-- Título principal de la tabla -->
       <h2>Catálogo de Aves</h2>
 
+      <!-- Botón para abrir el formulario de agregar una nueva ave -->
       <ion-button (click)="openForm()">Agregar Ave</ion-button>
 
+      <!-- Tabla para listar las aves -->
       <table>
         <thead>
+          <!-- Encabezados de la tabla -->
           <tr>
             <th>Código</th>
             <th>Nombre Común</th>
@@ -18,7 +24,9 @@
           </tr>
         </thead>
         <tbody>
+          <!-- Ciclo para iterar sobre la lista de aves y generar filas dinámicamente -->
           <tr *ngFor="let ave of aves; let i = index">
+            <!-- Columnas que muestran los datos de cada ave -->
             <td>{{ ave.codigo }}</td>
             <td>{{ ave.nombreComun }}</td>
             <td>{{ ave.nombreCientifico }}</td>
@@ -26,7 +34,9 @@
             <td>{{ ave.habitat }}</td>
             <td>{{ ave.municipio }}</td>
             <td>
+              <!-- Botón para editar la ave seleccionada -->
               <ion-button (click)="editAve(i)">Editar</ion-button>
+              <!-- Botón para eliminar la ave seleccionada -->
               <ion-button (click)="deleteAve(i)">Eliminar</ion-button>
             </td>
           </tr>
@@ -34,39 +44,49 @@
       </table>
     </div>
 
-    <!-- Formulario para agregar o editar -->
+    <!-- Sección del formulario para agregar o editar aves -->
     <div *ngIf="isFormOpen">
+      <!-- Campo para el código del ave -->
       <ion-input [(ngModel)]="form.codigo" placeholder="Código"></ion-input>
+      <!-- Campo para el nombre común del ave -->
       <ion-input [(ngModel)]="form.nombreComun" placeholder="Nombre Común"></ion-input>
+      <!-- Campo para el nombre científico del ave -->
       <ion-input [(ngModel)]="form.nombreCientifico" placeholder="Nombre Científico"></ion-input>
 
+      <!-- Selector para la especie del ave -->
       <ion-item>
         <ion-label>Especie</ion-label>
         <ion-select [(ngModel)]="form.especie" placeholder="Selecciona una especie">
+          <!-- Opciones dinámicas basadas en la lista de especies disponibles -->
           <ion-select-option *ngFor="let especie of especies" [value]="especie.nombreCientifico">
             {{ especie.nombreComun }}
           </ion-select-option>
         </ion-select>
       </ion-item>
 
+      <!-- Selector para el hábitat del ave -->
       <ion-item>
         <ion-label>Hábitat</ion-label>
         <ion-select [(ngModel)]="form.habitat" placeholder="Selecciona un hábitat">
+          <!-- Opciones dinámicas basadas en la lista de hábitats disponibles -->
           <ion-select-option *ngFor="let habitat of habitats" [value]="habitat.tipoHabitat">
             {{ habitat.tipoHabitat }}
           </ion-select-option>
         </ion-select>
       </ion-item>
 
+      <!-- Selector para el municipio del ave -->
       <ion-item>
         <ion-label>Municipio</ion-label>
         <ion-select [(ngModel)]="form.municipio" placeholder="Selecciona un municipio">
+          <!-- Opciones dinámicas basadas en la lista de municipios disponibles -->
           <ion-select-option *ngFor="let municipio of municipios" [value]="municipio.nombre">
             {{ municipio.nombre }}
           </ion-select-option>
         </ion-select>
       </ion-item>
 
+      <!-- Botones para guardar o cancelar la operación en el formulario -->
       <ion-button (click)="saveAve()">Guardar</ion-button>
       <ion-button (click)="closeForm()">Cancelar</ion-button>
     </div>
