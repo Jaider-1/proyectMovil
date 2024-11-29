@@ -45,20 +45,19 @@
               <ion-col size="2"><strong>Acciones</strong></ion-col>
             </ion-row>
             <ion-row *ngFor="let especie of especies">
-              <ion-col size="2">{{ especie.id }}</ion-col>
-              <ion-col size="3">{{ especie.nombreCientifico }}</ion-col>
-              <ion-col size="2">{{ especie.nombreComun }}</ion-col>
-              <ion-col size="3">{{ especie.descripcion }}</ion-col>
-              <ion-col size="2">
+              <ion-col size="2" data-label="ID Especie">{{ especie.id }}</ion-col>
+              <ion-col size="3" data-label="Nombre Científico">{{ especie.nombreCientifico }}</ion-col>
+              <ion-col size="2" data-label="Nombre Común">{{ especie.nombreComun }}</ion-col>
+              <ion-col size="3" data-label="Descripción">{{ especie.descripcion }}</ion-col>
+              <ion-col size="2" data-label="Acciones">
                 <ion-button color="warning" size="small" (click)="editarEspecie(especie)">Editar</ion-button>
                 <ion-button color="danger" size="small" (click)="eliminarEspecie(especie.id)">Eliminar</ion-button>
               </ion-col>
-            </ion-row>
+            </ion-row>            
           </ion-grid>
         </ion-card-content>
       </ion-card>
     </div>
-
   </div>
 </ion-content>
 
