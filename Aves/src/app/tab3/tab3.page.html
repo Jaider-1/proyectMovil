@@ -1,99 +1,123 @@
 <!-- tab3.page.html -->
 
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title class="center-title">
+<!-- Encabezado de la página -->
+<ion-header [translucent]="true"> <!-- Define el encabezado, que permanece fijo y puede tener transparencia -->
+  <!-- Barra de herramientas dentro del encabezado -->
+  <ion-toolbar color="primary"> <!-- Contenedor estilizado para herramientas, con un color primario -->
+    <!-- Título principal de la página -->
+    <ion-title class="center-title"> <!-- Contenedor de texto estilizado para mostrar un título -->
       Gestión de Municipios
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <div class="content-wrapper">
-    <!-- Columna Izquierda: Formulario -->
-    <div class="form-container">
+<!-- Contenido principal de la página -->
+<ion-content [fullscreen]="true"> <!-- Área de contenido desplazable, puede ser de pantalla completa -->
+  <div class="content-wrapper"> <!-- Contenedor principal para estructurar el diseño -->
+    
+    <!-- Sección izquierda: Formulario para gestionar un municipio -->
+    <div class="form-container"> <!-- Contenedor del formulario -->
+      <!-- Título dinámico que indica si se está editando o creando un nuevo municipio -->
       <h2>{{ municipio.editando ? 'Editar' : 'Nuevo' }} Municipio</h2>
 
-      <ion-item>
-        <ion-label position="stacked">ID Municipio</ion-label>
+      <!-- Campo de entrada para el ID del municipio -->
+      <ion-item> <!-- Contenedor estilizado que agrupa una etiqueta y un campo de entrada -->
+        <ion-label position="stacked"> <!-- Etiqueta del campo, posicionada encima del campo -->
+          ID Municipio
+        </ion-label>
         <ion-input
-          [(ngModel)]="municipio.id"
-          type="number"
-          readonly
-          class="ion-text-right">
+          [(ngModel)]="municipio.id" 
+          type="number" 
+          readonly 
+          class="ion-text-right"> <!-- Estilo personalizado que alinea el texto a la derecha -->
         </ion-input>
       </ion-item>
 
+      <!-- Campo de entrada para el nombre del municipio -->
       <ion-item>
-        <ion-label position="stacked">Nombre</ion-label>
+        <ion-label position="stacked">Nombre</ion-label> <!-- Etiqueta del campo -->
         <ion-input
-          [(ngModel)]="municipio.nombre"
-          placeholder="Ingrese el nombre del municipio">
+          [(ngModel)]="municipio.nombre" 
+          placeholder="Ingrese el nombre del municipio"> <!-- Texto guía dentro del campo -->
         </ion-input>
       </ion-item>
 
+      <!-- Campo de entrada para la ubicación del municipio -->
       <ion-item>
         <ion-label position="stacked">Ubicación</ion-label>
         <ion-input
-          [(ngModel)]="municipio.ubicacion"
+          [(ngModel)]="municipio.ubicacion" 
           placeholder="Ingrese la ubicación">
         </ion-input>
       </ion-item>
 
+      <!-- Área de texto para describir las características del municipio -->
       <ion-item>
         <ion-label position="stacked">Características</ion-label>
         <ion-textarea
-          [(ngModel)]="municipio.caracteristicas"
-          placeholder="Describa las características del municipio">
+          [(ngModel)]="municipio.caracteristicas" 
+          placeholder="Describa las características del municipio"> <!-- Texto guía -->
         </ion-textarea>
       </ion-item>
 
-      <div class="ion-padding buttons-container">
+      <!-- Botones de acción -->
+      <div class="ion-padding buttons-container"> <!-- Contenedor con padding para los botones -->
+        <!-- Botón para guardar o actualizar -->
         <ion-button 
-          size="small"
+          size="small" 
           color="light" 
           (click)="guardarMunicipio()" 
-          [disabled]="!municipio.nombre">
-          {{ municipio.editando ? 'ACTUALIZAR' : 'GUARDAR' }}
+          [disabled]="!municipio.nombre"> <!-- Deshabilita el botón si el nombre está vacío -->
+          {{ municipio.editando ? 'ACTUALIZAR' : 'GUARDAR' }} <!-- Texto dinámico -->
         </ion-button>
+        <!-- Botón para cancelar -->
         <ion-button 
           size="small" 
           color="light" 
           (click)="cancelar()" 
-          fill="outline">
+          fill="outline"> <!-- Aplica un estilo de contorno -->
           CANCELAR
         </ion-button>
       </div>
     </div>
 
-    <!-- Columna Derecha: Lista de Municipios -->
-    <div class="list-container">
+    <!-- Sección derecha: Lista de municipios -->
+    <div class="list-container"> <!-- Contenedor de la lista -->
+      <!-- Título que muestra el número total de municipios registrados -->
       <h2>Municipios Guardados ({{ municipios.length }})</h2>
-      <!-- Lista de Municipios -->
-      <ion-list *ngIf="municipios.length > 0; else noMunicipios">
-        <ion-item-sliding *ngFor="let m of municipios; let i = index">
-          <ion-item>
-            <ion-label>
+      <!-- Lista de municipios con estructura condicional -->
+      <ion-list *ngIf="municipios.length > 0; else noMunicipios"> <!-- Se muestra si hay municipios -->
+        <!-- Elemento deslizable de la lista -->
+        <ion-item-sliding *ngFor="let m of municipios; let i = index"> <!-- Itera sobre los municipios -->
+          <ion-item> <!-- Contenedor estilizado para mostrar un elemento -->
+            <ion-label> <!-- Contenedor para el texto del elemento -->
+              <!-- Nombre del municipio -->
               <h3>{{ m.nombre }}</h3>
+              <!-- Información adicional: ID y ubicación -->
               <p>
-                <ion-text color="secondary">ID: {{ m.id }}</ion-text> |
-                <ion-text color="tertiary">{{ m.ubicacion }}</ion-text>
+                <ion-text color="secondary">ID: {{ m.id }}</ion-text> | <!-- Texto con color secundario -->
+                <ion-text color="tertiary">{{ m.ubicacion }}</ion-text> <!-- Texto con color terciario -->
               </p>
+              <!-- Características del municipio -->
               <p>{{ m.caracteristicas }}</p>
             </ion-label>
-            <ion-buttons slot="end">
-              <ion-button color="warning" (click)="editarMunicipio(i)">
-                <ion-icon name="create-outline"></ion-icon>
+            <!-- Botones de acción específicos para cada elemento -->
+            <ion-buttons slot="end"> <!-- Contenedor para botones al final del elemento -->
+              <!-- Botón para editar -->
+              <ion-button color="warning" (click)="editarMunicipio(i)"> <!-- Estilo de advertencia -->
+                <ion-icon name="create-outline"></ion-icon> <!-- Ícono de edición -->
               </ion-button>
-              <ion-button color="danger" (click)="eliminarMunicipio(i)">
-                <ion-icon name="trash-outline"></ion-icon>
+              <!-- Botón para eliminar -->
+              <ion-button color="danger" (click)="eliminarMunicipio(i)"> <!-- Estilo de peligro -->
+                <ion-icon name="trash-outline"></ion-icon> <!-- Ícono de eliminar -->
               </ion-button>
             </ion-buttons>
           </ion-item>
         </ion-item-sliding>
       </ion-list>
-      <ng-template #noMunicipios>
-        <ion-text color="medium" class="ion-text-center ion-padding">
+      <!-- Plantilla para mostrar si no hay municipios registrados -->
+      <ng-template #noMunicipios> <!-- Plantilla condicional alternativa -->
+        <ion-text color="medium" class="ion-text-center ion-padding"> <!-- Texto centrado y estilizado -->
           <p>No hay municipios registrados</p>
         </ion-text>
       </ng-template>

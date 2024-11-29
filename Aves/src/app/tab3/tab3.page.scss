@@ -1,26 +1,30 @@
 /* tab3.page.scss */
 
+// Archivo de definición de variables de diseño y estilos para la interfaz de gestión de municipios
 :root {
-  // Paleta de colores personalizada
-  --ion-color-primary: #10b981;      // Verde esmeralda
+  // Definición de una paleta de colores personalizada con variaciones y matices
+  --ion-color-primary: #10b981;      // Tono principal de verde esmeralda
   --ion-color-primary-rgb: 16,185,129;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
   --ion-color-primary-shade: #0ea771;
   --ion-color-primary-tint: #28c58d;
-  --ion-color-secondary: #1e3a8a;    // Azul oscuro profundo
+  // Definición de colores secundarios y de acento
+  --ion-color-secondary: #1e3a8a;    // Tono de azul oscuro profundo
   --ion-color-secondary-rgb: 30,58,138;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255,255,255;
   --ion-color-secondary-shade: #1a3276;
   --ion-color-secondary-tint: #354d92;
-  --ion-color-tertiary: #f59e0b;     // Amarillo de advertencia
+  // Colores terciarios y de advertencia
+  --ion-color-tertiary: #f59e0b;     // Tono de amarillo de advertencia
   --ion-color-tertiary-rgb: 245,158,11;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255,255,255;
   --ion-color-tertiary-shade: #d97706;
   --ion-color-tertiary-tint: #f7b328;
-  --ion-color-danger: #ef4444;       // Rojo de peligro
+  // Definición de color de peligro o error
+  --ion-color-danger: #ef4444;       // Tono de rojo para indicar peligro
   --ion-color-danger-rgb: 239,68,68;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255,255,255;
@@ -28,67 +32,76 @@
   --ion-color-danger-tint: #eb5757;
 }
 
-// Centrar título
+// Selector de clase - Centrar título
 .center-title {
   text-align: center;
   margin: 0 auto;
 }
 
-// Contenedor general
+// Selector de clase - Contenedor principal con diseño flexible
 .content-wrapper {
+  // Propiedades de display flex
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Centra los elementos horizontalmente */
-  align-items: center; /* Centra los elementos verticalmente */
-  gap: 30px; /* Espacio entre los cuadros */
+  justify-content: center; // Centrado horizontal
+  align-items: center; // Centrado vertical
+  gap: 30px; // Espaciado entre elementos
   padding: 20px;
-  min-height: 80vh; /* Mantiene el área ocupada verticalmente */
-  background: rgba(0, 0, 0, 0.6); /* Fondo translúcido oscuro */
+  min-height: 80vh; // Altura mínima para ocupar la mayoría de la pantalla
+  background: rgba(0, 0, 0, 0.6); // Fondo oscuro semi-transparente
 }
 
+// Selector de clase múltiple - Estilos compartidos para contenedores
 .form-container,
 .list-container {
-  flex: 0 1 300px; /* Tamaño fijo de los cuadros */
+  // Configuración de dimensiones y apariencia
+  flex: 0 1 300px; // Tamaño fijo con flexibilidad
   padding: 15px;
   border-radius: 15px;
   color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); // Sombra para efecto de profundidad
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Animación de transformación suave
 }
 
+// Selector de clase - Fondo de contenedor de formulario
 .form-container {
-  background: linear-gradient(135deg, #1e3a8a, #10b981);
+  background: linear-gradient(135deg, #1e3a8a, #10b981); // Gradiente de azul a verde
 }
 
+// Selector de clase - Fondo de contenedor de lista
 .list-container {
-  background: linear-gradient(135deg, #10b981, #1e3a8a);
+  background: linear-gradient(135deg, #10b981, #1e3a8a); // Gradiente inverso de verde a azul
 }
 
+// Selector de clase con pseudo-clase :hover - Efecto de interacción
 .form-container:hover,
 .list-container:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  transform: translateY(-5px); // Ligero desplazamiento hacia arriba
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); // Sombra más pronunciada
 }
 
-// Estilo para títulos
+// Selector de elemento - Estilos para títulos de segundo nivel
 h2 {
+  // Configuración de apariencia de títulos
   margin-bottom: 15px;
   font-size: 18px;
   color: #ffffff;
   text-align: center;
-  border-bottom: 2px solid #10b981;
+  border-bottom: 2px solid #10b981; // Línea de subrayado
   padding-bottom: 8px;
-  text-shadow: 0px 0px 5px #1e3a8a;
+  text-shadow: 0px 0px 5px #1e3a8a; // Efecto de brillo en el texto
 }
 
-// Botones
+// Selector de clase - Contenedor de botones
 .buttons-container {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
+// Selector de elemento de componente Ionic - Estilos de botones
 ion-button {
+  // Diseño base de los botones
   --background: white;
   --color: black;
   border-radius: 10px;
@@ -96,17 +109,20 @@ ion-button {
   font-size: 14px;
 }
 
+// Selector de atributo - Botones con estilo de contorno
 ion-button[fill="outline"] {
   --border-color: black;
   --background: transparent;
 }
 
+// Selector de elemento con pseudo-clase :hover - Efecto de botón al pasar el ratón
 ion-button:hover {
   --background: #e0e0e0;
 }
 
-// Estilos para elementos deslizantes
+// Selector de elemento de componente Ionic - Elementos deslizantes
 ion-item-sliding {
+  // Configuración de elementos de lista interactivos
   margin-bottom: 8px;
   border-radius: 8px;
   overflow: hidden;
@@ -115,32 +131,36 @@ ion-item-sliding {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+// Selector de elemento de componente Ionic - Elementos de lista
 ion-item {
   --background: transparent;
   --color: white;
 }
 
-// Texto de placeholder y labels
+// Selector de elementos múltiples - Etiquetas, entradas y áreas de texto
 ion-label, ion-input, ion-textarea {
   color: white !important;
-  --placeholder-color: rgba(255, 255, 255, 0.7);
+  --placeholder-color: rgba(255, 255, 255, 0.7); // Color de texto de marcador semi-transparente
 }
 
-// Estilo para lista vacía
+// Selector de clase - Texto centrado
 .ion-text-center {
   color: rgba(255, 255, 255, 0.7) !important;
 }
 
-// Responsive
+// Media query - Diseño responsivo para pantallas pequeñas
 @media (max-width: 768px) {
+  // Selector de clase - Contenedor principal en modo responsivo
   .content-wrapper {
-    flex-direction: column; /* Apila los cuadros verticalmente */
+    flex-direction: column; // Cambio a diseño vertical en pantallas pequeñas
     justify-content: center;
     align-items: center;
   }
+  
+  // Selector de clase múltiple - Contenedores en modo responsivo
   .form-container,
   .list-container {
-    width: 100%; /* Ocupa el ancho completo en pantallas pequeñas */
+    width: 100%; // Ocupación total del ancho
     max-width: 400px;
   }
 }
