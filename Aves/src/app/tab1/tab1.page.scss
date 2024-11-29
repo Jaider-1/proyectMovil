@@ -1,14 +1,14 @@
 // Estilos generales para el contenido principal
 ion-content {
   --background: url('b.jpg') no-repeat center center/cover; // Fondo con imagen centrada y cubierta completa
-  color: #333; // Color del texto en tono oscuro para buena legibilidad
+  color: #000000; // Color del texto en tono oscuro para buena legibilidad
   font-family: 'Arial', sans-serif; // Fuente estándar para diseño limpio
 }
 
 // Contenedor principal para los elementos del contenido
 .content-wrapper {
   margin: 20px; // Espaciado externo
-  background: rgba(255, 255, 255, 0.411); // Fondo semitransparente para destacar sobre el fondo
+  background: rgba(255, 255, 255, 0.445); // Fondo semitransparente para destacar sobre el fondo
   border-radius: 10px; // Bordes redondeados para un diseño moderno
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Sombra para un efecto de profundidad
   padding: 20px; // Espaciado interno uniforme
@@ -89,7 +89,7 @@ div[ngIf="isFormOpen"] {
 
   ion-label {
     font-weight: bold; // Etiquetas destacadas
-    color: #333; // Color neutro para contraste
+    color: #000000; // Color neutro para contraste
   }
 
   // Estilos de los botones del formulario
