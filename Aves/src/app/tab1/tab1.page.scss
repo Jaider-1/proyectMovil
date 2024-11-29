@@ -1,69 +1,70 @@
-// Estilos generales
+// Estilos generales para el contenido principal
 ion-content {
-  --background: url('b.jpg') no-repeat center center/cover; // Cambia la URL por la imagen que desees
-  color: #333; // Texto en tonos oscuros
-  font-family: 'Arial', sans-serif;
+  --background: url('b.jpg') no-repeat center center/cover; // Fondo con imagen centrada y cubierta completa
+  color: #333; // Color del texto en tono oscuro para buena legibilidad
+  font-family: 'Arial', sans-serif; // Fuente estándar para diseño limpio
 }
 
-// Contenedor principal
+// Contenedor principal para los elementos del contenido
 .content-wrapper {
-  margin: 20px;
-  background: rgba(255, 255, 255, 0.9); // Fondo semitransparente
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+  margin: 20px; // Espaciado externo
+  background: rgba(255, 255, 255, 0.9); // Fondo semitransparente para destacar sobre el fondo
+  border-radius: 10px; // Bordes redondeados para un diseño moderno
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); // Sombra para un efecto de profundidad
+  padding: 20px; // Espaciado interno uniforme
 }
 
-// Encabezado
+// Estilo para el encabezado principal
 h2 {
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  color: #0056b3; // Color azul profesional
+  text-align: center; // Centrado horizontal
+  font-size: 24px; // Tamaño de fuente grande
+  font-weight: bold; // Fuente en negrita para destacar
+  margin-bottom: 20px; // Espaciado inferior
+  color: #0056b3; // Color azul profesional para un diseño corporativo
 }
 
-// Tabla
+// Contenedor de la tabla y estilos asociados
 .table-container {
-  overflow-x: auto; // Permite scroll horizontal en pantallas pequeñas
+  overflow-x: auto; // Habilita el scroll horizontal en pantallas pequeñas
 
   table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 100%; // Tabla ocupa el 100% del contenedor
+    border-collapse: collapse; // Elimina espacio entre bordes de celdas
 
     thead {
-      background: #0056b3; // Fondo azul
-      color: #fff;
+      background: #0056b3; // Fondo azul en el encabezado
+      color: #fff; // Texto en blanco para contraste
 
       th {
-        padding: 10px;
-        text-align: left;
-        font-weight: bold;
+        padding: 10px; // Espaciado interno de las celdas del encabezado
+        text-align: left; // Texto alineado a la izquierda
+        font-weight: bold; // Texto en negrita
       }
     }
 
     tbody {
       tr {
         &:nth-child(even) {
-          background: #f4f4f4; // Filas alternas con diferente fondo
+          background: #f4f4f4; // Fondo alternado en filas pares para mejor legibilidad
         }
 
         &:hover {
-          background: rgba(0, 86, 179, 0.1); // Fondo al pasar el ratón
+          background: rgba(0, 86, 179, 0.1); // Fondo resaltado al pasar el ratón
         }
 
         td {
-          padding: 10px;
-          border: 1px solid #ddd;
+          padding: 10px; // Espaciado interno de las celdas
+          border: 1px solid #ddd; // Borde suave para delimitar las celdas
         }
 
+        // Botones dentro de las celdas
         ion-button {
-          margin: 0 5px;
-          --background: #0056b3;
-          --color: white;
+          margin: 0 5px; // Separación horizontal entre botones
+          --background: #0056b3; // Color de fondo azul
+          --color: white; // Texto en blanco para contraste
 
           &:hover {
-            --background: #003d80; // Más oscuro al pasar el ratón
+            --background: #003d80; // Azul más oscuro al pasar el ratón
           }
         }
       }
@@ -71,59 +72,62 @@ h2 {
   }
 }
 
-// Formulario
+// Estilos del formulario dinámico
 div[ngIf="isFormOpen"] {
-  margin-top: 20px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; // Separación superior del formulario
+  background: #fff; // Fondo blanco para claridad
+  border: 1px solid #ddd; // Borde delgado para delimitación
+  border-radius: 8px; // Bordes redondeados para consistencia
+  padding: 20px; // Espaciado interno uniforme
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Sombra para realce visual
 
+  // Estilos para campos de entrada y elementos dentro del formulario
   ion-input,
   ion-item {
-    margin-bottom: 15px;
+    margin-bottom: 15px; // Espaciado inferior entre elementos
   }
 
   ion-label {
-    font-weight: bold;
-    color: #333;
+    font-weight: bold; // Etiquetas destacadas
+    color: #333; // Color neutro para contraste
   }
 
+  // Estilos de los botones del formulario
   ion-button {
-    --background: #28a745; // Botón verde para guardar
-    --color: white;
-    margin-right: 10px;
+    --background: #28a745; // Fondo verde para botón de guardar
+    --color: white; // Texto en blanco
+    margin-right: 10px; // Separación entre botones
 
     &:hover {
-      --background: #218838; // Más oscuro al pasar el ratón
+      --background: #218838; // Verde más oscuro al pasar el ratón
     }
 
+    // Botón para cancelar
     &:last-child {
-      --background: #dc3545; // Botón rojo para cancelar
+      --background: #dc3545; // Fondo rojo
       &:hover {
-        --background: #c82333;
+        --background: #c82333; // Rojo más oscuro al pasar el ratón
       }
     }
   }
 }
 
-// Responsividad
+// Estilos de responsividad para dispositivos pequeños
 @media (max-width: 768px) {
   .content-wrapper {
-    margin: 10px;
-    padding: 15px;
+    margin: 10px; // Margen reducido para pantallas pequeñas
+    padding: 15px; // Padding más ajustado
   }
 
   table {
-    font-size: 14px;
+    font-size: 14px; // Fuente más pequeña para mejor visualización
 
     th, td {
-      padding: 8px;
+      padding: 8px; // Reducción de espacio interno en celdas
     }
   }
 
   h2 {
-    font-size: 20px;
+    font-size: 20px; // Tamaño de fuente reducido para encabezados
   }
 }
