@@ -83,9 +83,11 @@ CREATE TABLE LugarHabitado (
 CREATE TABLE Ave (
     ID_Ave INT AUTO_INCREMENT PRIMARY KEY,          -- Llave primaria única para identificar cada ave
     Nom_Cientifico VARCHAR(255) NOT NULL,           -- Nombre científico de la ave
-    Nom_Comun VARCHAR(255) NOT NULL,                -- Nombre común de la ave
+    Nom_Comun VARCHAR(255) NOT NULL,    
+    Descripcion VARCHAR(255) NOT NULL,            -- Nombre común de la ave
     ID_Raza INT,                                    -- Llave foránea para vincular con una raza
     ID_LugarHabitado INT,                           -- Llave foránea para vincular con un lugar habitado
     FOREIGN KEY (ID_Raza) REFERENCES Raza(ID_Raza), -- Relación con la tabla Raza
     FOREIGN KEY (ID_LugarHabitado) REFERENCES LugarHabitado(ID_LugarHabitado) -- Relación con LugarHabitado
 );
+
