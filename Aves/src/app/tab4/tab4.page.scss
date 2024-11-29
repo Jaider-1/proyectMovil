@@ -1,240 +1,191 @@
 /* Estilo general con GIF de fondo */
 :host {
-  --ion-background-color: transparent;
+  --ion-background-color: transparent; /* Hace el fondo transparente */
 }
 
 ion-content {
-  --position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+  --position: relative; /* Define la posición relativa del contenido */
+  width: 100%; /* Ocupa todo el ancho */
+  height: 100%; /* Ocupa toda la altura */
+  overflow: hidden; /* Oculta cualquier contenido que exceda los límites */
 
-  /* GIF de fondo */
+  /* Establece un GIF como fondo del contenido */
   --background: url("/assets/img_tab4.gif") no-repeat center center / cover;
-  --background-size: cover;
+  --background-size: cover; /* Ajusta el tamaño del fondo para cubrir todo el contenedor */
 }
 
 /* Contenedor principal con efecto de fondo translúcido */
 .main-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 100%;
-  gap: 10px;
+  display: flex; /* Utiliza un layout flexbox */
+  flex-direction: row; /* Alinea los elementos horizontalmente */
+  justify-content: space-between; /* Espacia los elementos equitativamente */
+  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 100%; /* Ocupa toda la altura disponible */
+  gap: 10px; /* Espaciado entre los elementos */
 
-  /* Fondo translúcido para los componentes */
+  /* Efecto de fondo translúcido con bordes redondeados y sombra */
   background: rgba(0, 0, 0, 0.6);
   border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra ligera */
 }
 
 /* Estilo para el formulario */
 .form-container {
-  flex: 1;
-  max-width: 400px;
+  flex: 1; /* El formulario ocupa un espacio proporcional */
+  max-width: 400px; /* Define un ancho máximo */
 }
 
 .form-card {
+  /* Fondo degradado con colores translúcidos */
   background: linear-gradient(135deg, #1e3b8a5d, #10b98151);
+  color: white; /* Texto blanco */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+.form-card:hover {
+  transform: translateY(-5px); /* Eleva el elemento al pasar el cursor */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* Aumenta la sombra */
+}
+
+ion-card-title {
+  color: #ffffff; /* Texto blanco */
+  font-size: 1.4rem; /* Tamaño de fuente */
+}
+
+/* Contenedor de la tabla */
+.table-container {
+  flex: 1; /* Ocupa un espacio proporcional */
+}
+
+.table-container ion-card {
+  /* Fondo degradado para las tarjetas */
+  background: linear-gradient(
+    135deg,
+    rgba(16, 185, 129, 0.5),
+    rgba(30, 59, 138, 0.4)
+  );
   color: white;
   border-radius: 20px;
-  padding: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.form-card:hover {
+.table-container ion-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 8px 16px rgba(127, 127, 127, 0.5);
 }
 
-ion-card-title {
-  color: #ffffff;
-  font-size: 1.4rem;/* Estilo general con GIF de fondo */
-  :host {
-    --ion-background-color: transparent;
+/* Ajuste del contenido de la tabla */
+.table-container ion-card-content {
+  max-height: 400px; /* Altura máxima del contenido */
+  overflow-y: auto; /* Habilita el scroll vertical */
+  scrollbar-width: thin; /* Define el grosor de la barra de desplazamiento */
+  scrollbar-color: #ccc transparent; /* Color de la barra de desplazamiento */
+
+  &::-webkit-scrollbar {
+    width: 8px; /* Grosor de la barra en navegadores webkit */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ccc; /* Color del "thumb" de la barra */
+    border-radius: 4px; /* Bordes redondeados */
   }
 }
-  ion-content {
-    --position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  
-    /* GIF de fondo */
-    --background: url("/assets/img_tab4.gif") no-repeat center center / cover;
+
+.table-wrapper {
+  overflow-x: auto; /* Habilita el desplazamiento horizontal */
+  white-space: nowrap; /* Evita que las columnas se ajusten automáticamente */
+  padding: 8px; /* Espaciado interno */
+}
+
+/* Filas y columnas de la tabla */
+.header-row ion-col {
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centrado horizontal */
+  color: #ffffff; /* Texto blanco */
+  text-shadow: 0px 0px 5px #1e3a8a; /* Sombra de texto */
+  border-bottom: 2px solid rgba(255, 255, 255, 0.3); /* Línea inferior */
+}
+
+ion-row {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea inferior más tenue */
+  padding: 8px 0; /* Espaciado vertical */
+
+  ion-col {
+    text-align: center; /* Centrado de contenido */
+    color: #ffffff;
+    word-wrap: break-word; /* Ajusta el texto si es muy largo */
+    overflow-wrap: break-word; /* Ajusta el texto en cualquier punto */
+    padding: 8px; /* Espaciado interno */
   }
-  
-  /* Contenedor principal con efecto translúcido */
+}
+
+/* Botones */
+ion-button {
+  --background: rgba(16, 185, 129, 0.4); /* Color de fondo translúcido */
+  --color: white; /* Texto blanco */
+  border-radius: 20px; /* Bordes redondeados */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+
+  &:hover {
+    transform: scale(1.05); /* Incrementa el tamaño ligeramente */
+    box-shadow: 0 4px 8px rgba(117, 116, 116, 0.5); /* Sombra al pasar el cursor */
+  }
+
+  &[color="warning"] {
+    --background: #f59e0b; /* Fondo naranja */
+    --background-hover: #d97706; /* Fondo naranja más oscuro al pasar el cursor */
+  }
+
+  &[color="danger"] {
+    --background: #ef4444; /* Fondo rojo */
+    --background-hover: #b91c1c; /* Fondo rojo más oscuro al pasar el cursor */
+  }
+}
+
+/* Diseño responsivo */
+@media (min-width: 962px) {
   .main-container {
-    display: flex;
-    flex-wrap: wrap; /* Asegura que los elementos se ajusten automáticamente */
-    justify-content: center; /* Centra horizontalmente */
-    align-items: flex-start;
-    gap: 16px;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
-    border-radius: 20px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    flex-direction: row; /* Elementos alineados en fila */
   }
-  
-  /* Estilo para el formulario */
-  .form-container {
-    flex: 1 1 100%; /* Ocupa el ancho completo por defecto */
-    max-width: 400px;
-  }
-  
-  .form-card {
-    background: linear-gradient(135deg, rgba(30, 59, 138, 0.6), rgba(16, 185, 129, 0.5));
-    color: white;
-    border-radius: 20px;
-    padding: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
-    }
-  }
-  
-  ion-card-title {
-    color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: bold;
-    text-align: left;
-  }
-  
-  /* Tabla y contenedor */
+
+  .form-container,
   .table-container {
-    flex: 1 1 100%; /* Ocupa el ancho completo por defecto */
+    flex: 1 1 48%; /* Cada contenedor ocupa el 48% del ancho */
   }
-  
-  .table-container ion-card {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(30, 59, 138, 0.4));
-    color: white;
-    border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(127, 127, 127, 0.5);
-    }
-  }
-  
-  /* Ajuste del contenido de la tabla */
-  .table-container ion-card-content {
-    max-height: 400px;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #ccc transparent;
-  
-    &::-webkit-scrollbar {
-      width: 8px;
-    }
-  
-    &::-webkit-scrollbar-thumb {
-      background: #ccc;
-      border-radius: 4px;
-    }
-  }
-  
+}
+
+@media (max-width: 962px) {
   .table-wrapper {
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 8px;
+    white-space: normal; /* Ajusta las columnas automáticamente */
   }
-  
-  /* Filas y columnas */
-  .header-row ion-col {
-    font-weight: bold;
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 0px 0px 5px #1e3a8a;
-    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-  }
-  
+
   ion-row {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 0;
-  
+    display: flex;
+    flex-direction: column; /* Columnas apiladas */
+    padding: 10px 0;
+
     ion-col {
-      text-align: center;
-      color: #ffffff;
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-      padding: 8px;
-    }
-  }
-  
-  /* Botones */
-  ion-button {
-    --background: rgba(16, 185, 129, 0.4);
-    --color: white;
-    border-radius: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 0 4px 8px rgba(117, 116, 116, 0.5);
-    }
-  
-    &[color="warning"] {
-      --background: #f59e0b;
-      --background-hover: #d97706;
-    }
-  
-    &[color="danger"] {
-      --background: #ef4444;
-      --background-hover: #b91c1c;
-    }
-  }
-  
-  /* Diseño responsivo */
-  @media (min-width: 962px) {
-    .main-container {
-      flex-direction: row;
-    }
-  
-    .form-container,
-    .table-container {
-      flex: 1 1 48%; /* Ocupa el 48% del ancho */
-    }
-  }
-  
-  @media (max-width: 962px) {
-    .table-wrapper {
-      white-space: normal;
-    }
-  
-    ion-row {
       display: flex;
       flex-direction: column;
-      padding: 10px 0;
-  
-      ion-col {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        padding: 8px 0;
-  
-        &:before {
-          content: attr(data-label);
-          font-weight: bold;
-          color: #ffffff;
-          margin-bottom: 4px;
-        }
+      align-items: flex-start; /* Alineación a la izquierda */
+      text-align: left; /* Texto alineado a la izquierda */
+      padding: 8px 0;
+
+      &:before {
+        content: attr(data-label); /* Etiqueta de columna en modo responsivo */
+        font-weight: bold; /* Negrita */
+        color: #ffffff; /* Texto blanco */
+        margin-bottom: 4px; /* Espaciado entre etiqueta y contenido */
       }
-    }
-  
-    .header-row {
-      display: none;
     }
   }
 
+  .header-row {
+    display: none; /* Oculta los encabezados en pantallas pequeñas */
+  }
+}
