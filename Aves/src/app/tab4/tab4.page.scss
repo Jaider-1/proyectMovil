@@ -8,10 +8,9 @@ ion-content {
   width: 100%;
   height: 100%;
   overflow: hidden;
- 
 
   /* GIF de fondo */
-  --background: url('/assets/img_tab4.gif') no-repeat center center / cover;
+  --background: url("/assets/img_tab4.gif") no-repeat center center / cover;
   --background-size: cover;
 }
 
@@ -19,14 +18,11 @@ ion-content {
 .main-container {
   display: flex;
   flex-direction: row;
-  flex-direction: column; /* En móviles, los elementos estarán en columna */
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
   height: 100%;
-  padding: 16px;
-  gap: 20px;
- 
+  gap: 10px;
 
   /* Fondo translúcido para los componentes */
   background: rgba(0, 0, 0, 0.6);
@@ -56,115 +52,189 @@ ion-content {
 
 ion-card-title {
   color: #ffffff;
-  font-size: 1.4rem;
-  text-align: center;
-  font-weight: bold;
-}
-
-/* Estilo para la tabla */
-.table-container {
-  flex: 2;
-}
-
-.table-container ion-card {
-  background: linear-gradient(135deg, #10b98150, #1e3b8a4b);
-  color: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.table-container ion-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(127, 127, 127, 0.562);
-}
-
-.header-row ion-col {
-  font-weight: bold;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 0px 0px 5px #1e3a8a;
-}
-
-ion-row ion-col {
-  text-align: center;
-  color: #ffffff;
-}
-
-ion-button {
-  --background: #10b98164;
-  --background-hover: #1e3a8a;
-  --color: white;
-  border-radius: 20px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-ion-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(117, 116, 116, 0.5);
-}
-
-/* Botones de acción en la tabla */
-ion-button[color="warning"] {
-  --background: #f59e0b;
-  --background-hover: #d97706;
-}
-
-ion-button[color="danger"] {
-  --background: #ef4444;
-  --background-hover: #b91c1c;
-}
-
-/* Fondo translúcido para resaltar los contenedores */
-ion-card-content {
-  background: rgba(0, 0, 0, 0.223);
-  border-radius: 10px;
-}
-
-.responsive-container {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los elementos se ajusten automáticamente */
-  gap: 16px; /* Espaciado entre el formulario y la tabla */
-  width: 100%;
-  max-width: 1200px; /* Limita el ancho máximo en pantallas grandes */
-}
-
-form-container,
-.table-container {
-  flex: 1 1 100%; /* Por defecto, ocupan el 100% del ancho */
-}
-
-@media (min-width: 768px) {
-  .responsive-container {
-    flex-direction: row; /* En pantallas más grandes, se alinean en fila */
+  font-size: 1.4rem;/* Estilo general con GIF de fondo */
+  :host {
+    --ion-background-color: transparent;
   }
-
-  .form-container,
+}
+  ion-content {
+    --position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  
+    /* GIF de fondo */
+    --background: url("/assets/img_tab4.gif") no-repeat center center / cover;
+  }
+  
+  /* Contenedor principal con efecto translúcido */
+  .main-container {
+    display: flex;
+    flex-wrap: wrap; /* Asegura que los elementos se ajusten automáticamente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilo para el formulario */
+  .form-container {
+    flex: 1 1 100%; /* Ocupa el ancho completo por defecto */
+    max-width: 400px;
+  }
+  
+  .form-card {
+    background: linear-gradient(135deg, rgba(30, 59, 138, 0.6), rgba(16, 185, 129, 0.5));
+    color: white;
+    border-radius: 20px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  ion-card-title {
+    color: #ffffff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  /* Tabla y contenedor */
   .table-container {
-    flex: 1 1 48%; /* Cada contenedor ocupa el 48% del ancho con margen */
+    flex: 1 1 100%; /* Ocupa el ancho completo por defecto */
   }
-}
-
-.table-container ion-card-content {
-  max-height: 400px; /* Altura máxima para la tabla */
-  overflow-y: auto; /* Habilita el scroll vertical */
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-}
-
-.table-container ion-card-content::-webkit-scrollbar {
-  width: 8px;
-}
-
-.table-container ion-card-content::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
-}
-
-:root {
-  /* Tamaño base de las fuentes */
-  --font-small: 11px; /* Para móviles pequeños */
-  --font-medium: 16px; /* Para tablets */
-  --font-large: 18px; /* Para pantallas grandes */
-}
+  
+  .table-container ion-card {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.5), rgba(30, 59, 138, 0.4));
+    color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(127, 127, 127, 0.5);
+    }
+  }
+  
+  /* Ajuste del contenido de la tabla */
+  .table-container ion-card-content {
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #ccc transparent;
+  
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+  }
+  
+  .table-wrapper {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 8px;
+  }
+  
+  /* Filas y columnas */
+  .header-row ion-col {
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0px 0px 5px #1e3a8a;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  ion-row {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 0;
+  
+    ion-col {
+      text-align: center;
+      color: #ffffff;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      padding: 8px;
+    }
+  }
+  
+  /* Botones */
+  ion-button {
+    --background: rgba(16, 185, 129, 0.4);
+    --color: white;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(117, 116, 116, 0.5);
+    }
+  
+    &[color="warning"] {
+      --background: #f59e0b;
+      --background-hover: #d97706;
+    }
+  
+    &[color="danger"] {
+      --background: #ef4444;
+      --background-hover: #b91c1c;
+    }
+  }
+  
+  /* Diseño responsivo */
+  @media (min-width: 962px) {
+    .main-container {
+      flex-direction: row;
+    }
+  
+    .form-container,
+    .table-container {
+      flex: 1 1 48%; /* Ocupa el 48% del ancho */
+    }
+  }
+  
+  @media (max-width: 962px) {
+    .table-wrapper {
+      white-space: normal;
+    }
+  
+    ion-row {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 0;
+  
+      ion-col {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        padding: 8px 0;
+  
+        &:before {
+          content: attr(data-label);
+          font-weight: bold;
+          color: #ffffff;
+          margin-bottom: 4px;
+        }
+      }
+    }
+  
+    .header-row {
+      display: none;
+    }
+  }
 
