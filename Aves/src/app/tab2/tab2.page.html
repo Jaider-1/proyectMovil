@@ -1,28 +1,28 @@
 <ion-content>
-  <!-- Encabezado -->
+  <!-- Encabezado: Título principal de la página que describe el propósito -->
   <div class="header">
-    <h2>Información del Hábitat de Aves</h2>
+    <h2>Información del Hábitat de Aves</h2> <!-- Título de la página -->
   </div>
 
-  <!-- Contenedor principal de la página -->
+  <!-- Contenedor principal de la página, que contiene los elementos visuales y formularios -->
   <div class="main-container">
-    <!-- Tarjeta para la selección de opciones -->
+    <!-- Tarjeta para la selección de opciones relacionadas con el hábitat -->
     <div class="card">
-      <h3>Detalles del Hábitat de Aves</h3>
+      <h3>Detalles del Hábitat de Aves</h3> <!-- Título para la sección de entrada de detalles -->
 
-      <!-- ID_LugarHabitado en la barra negra (campo no editable) -->
+      <!-- ID_LugarHabitado en la barra negra (campo no editable), muestra un identificador único -->
       <ion-item>
         <ion-label class="id-lugar-label">
-          <span class="titulo-id">ID_LugarHabitado:</span>
-          <span class="numero-id">{{ idLugarHabitado }}</span>
+          <span class="titulo-id">ID_LugarHabitado:</span> <!-- Etiqueta que muestra "ID_LugarHabitado" -->
+          <span class="numero-id">{{ idLugarHabitado }}</span> <!-- Muestra el valor dinámico de 'idLugarHabitado' -->
         </ion-label>
       </ion-item>
 
-      <!-- Selección del tipo de hábitat -->
+      <!-- Selección del tipo de hábitat disponible -->
       <ion-item>
-        <ion-label>Tipo de Hábitat</ion-label>
-        <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat">
-          <ion-select-option value="Bosque">Bosque</ion-select-option>
+        <ion-label>Tipo de Hábitat</ion-label> <!-- Etiqueta para el tipo de hábitat -->
+        <ion-select [(ngModel)]="tipoHabitat" placeholder="Selecciona un hábitat"> <!-- Lista desplegable para seleccionar el tipo de hábitat -->
+          <ion-select-option value="Bosque">Bosque</ion-select-option> <!-- Opciones para seleccionar el tipo de hábitat -->
           <ion-select-option value="Selva Tropical">Selva Tropical</ion-select-option>
           <ion-select-option value="Desierto">Desierto</ion-select-option>
           <ion-select-option value="Pradera">Pradera</ion-select-option>
@@ -31,11 +31,11 @@
         </ion-select>
       </ion-item>
 
-      <!-- Selección del clima -->
+      <!-- Selección del clima del hábitat -->
       <ion-item>
-        <ion-label>Clima</ion-label>
-        <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima">
-          <ion-select-option value="Cálido">Cálido</ion-select-option>
+        <ion-label>Clima</ion-label> <!-- Etiqueta para el clima -->
+        <ion-select [(ngModel)]="clima" placeholder="Selecciona el clima"> <!-- Lista desplegable para seleccionar el clima -->
+          <ion-select-option value="Cálido">Cálido</ion-select-option> <!-- Opciones para seleccionar el clima -->
           <ion-select-option value="Frío">Frío</ion-select-option>
           <ion-select-option value="Húmedo">Húmedo</ion-select-option>
           <ion-select-option value="Tropical">Tropical</ion-select-option>
@@ -43,11 +43,11 @@
         </ion-select>
       </ion-item>
 
-      <!-- Selección del tipo de vegetación -->
+      <!-- Selección del tipo de vegetación en el hábitat -->
       <ion-item>
-        <ion-label>Vegetación</ion-label>
-        <ion-select [(ngModel)]="vegetacion" placeholder="Selecciona la vegetación">
-          <ion-select-option value="Densa">Densa</ion-select-option>
+        <ion-label>Vegetación</ion-label> <!-- Etiqueta para la vegetación -->
+        <ion-select [(ngModel)]="vegetacion" placeholder="Selecciona la vegetación"> <!-- Lista desplegable para seleccionar el tipo de vegetación -->
+          <ion-select-option value="Densa">Densa</ion-select-option> <!-- Opciones para seleccionar la vegetación -->
           <ion-select-option value="Escasa">Escasa</ion-select-option>
           <ion-select-option value="Moderada">Moderada</ion-select-option>
           <ion-select-option value="Tropical">Tropical</ion-select-option>
@@ -56,22 +56,23 @@
       </ion-item>
     </div>
 
-    <!-- Botón para guardar la selección realizada -->
+    <!-- Botón para guardar la selección realizada por el usuario -->
     <div class="button-container">
-      <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button>
+      <ion-button expand="block" class="save-button" (click)="guardarSeleccion()">Guardar Selección</ion-button> <!-- Botón que ejecuta la función guardarSeleccion() -->
     </div>
 
-    <!-- Sección para mostrar las tarjetas con los datos ingresados -->
+    <!-- Sección para mostrar las tarjetas con los datos ingresados anteriormente -->
     <div class="cards-container">
       <div *ngFor="let item of datos" class="data-card">
-        <h4>Detalles del Hábitat de Aves</h4>
-        <p><strong>ID_LugarHabitado:</strong> {{ item.id }}</p>
-        <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p>
-        <p><strong>Clima:</strong> {{ item.clima }}</p>
-        <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p>
+        <h4>Detalles del Hábitat de Aves</h4> <!-- Título para cada tarjeta de datos -->
+        <p><strong>ID_LugarHabitado:</strong> {{ item.id }}</p> <!-- Muestra el ID del hábitat en cada tarjeta -->
+        <p><strong>Tipo de Hábitat:</strong> {{ item.tipoHabitat }}</p> <!-- Muestra el tipo de hábitat -->
+        <p><strong>Clima:</strong> {{ item.clima }}</p> <!-- Muestra el clima del hábitat -->
+        <p><strong>Vegetación:</strong> {{ item.vegetacion }}</p> <!-- Muestra la vegetación del hábitat -->
         <div class="button-group">
-          <ion-button color="primary" size="small" (click)="editarDato(item.id)">Editar</ion-button>
-          <ion-button color="danger" size="small" (click)="eliminarDato(item.id)">Eliminar</ion-button>
+          <!-- Botones para editar o eliminar los datos del hábitat -->
+          <ion-button color="primary" size="small" (click)="editarDato(item.id)">Editar</ion-button> <!-- Botón para editar los datos -->
+          <ion-button color="danger" size="small" (click)="eliminarDato(item.id)">Eliminar</ion-button> <!-- Botón para eliminar los datos -->
         </div>
       </div>
     </div>
